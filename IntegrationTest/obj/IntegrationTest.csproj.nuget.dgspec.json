@@ -1,0 +1,409 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/IntegrationTest.csproj": {}
+  },
+  "projects": {
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/Api.csproj",
+        "projectName": "Api",
+        "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/Api.csproj",
+        "packagesPath": "/Users/quasar/.nuget/packages/",
+        "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.306/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj": {
+                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj"
+              },
+              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj": {
+                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj",
+        "projectName": "Application",
+        "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj",
+        "packagesPath": "/Users/quasar/.nuget/packages/",
+        "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj",
+        "projectName": "Core",
+        "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj",
+        "packagesPath": "/Users/quasar/.nuget/packages/",
+        "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj",
+        "packagesPath": "/Users/quasar/.nuget/packages/",
+        "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj": {
+                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.143, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/IntegrationTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/IntegrationTest.csproj",
+        "projectName": "IntegrationTest",
+        "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/IntegrationTest.csproj",
+        "packagesPath": "/Users/quasar/.nuget/packages/",
+        "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/Api.csproj": {
+                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/Api.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.6.3, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj",
+        "projectName": "LoggerService",
+        "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj",
+        "packagesPath": "/Users/quasar/.nuget/packages/",
+        "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

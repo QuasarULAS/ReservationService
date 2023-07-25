@@ -1,0 +1,12 @@
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/bin/Debug/net7.0/LoggerService.deps.json
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/bin/Debug/net7.0/LoggerService.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/bin/Debug/net7.0/LoggerService.pdb
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.csproj.AssemblyReference.cache
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.AssemblyInfoInputs.cache
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.AssemblyInfo.cs
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.csproj.CoreCompileInputs.cache
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/refint/LoggerService.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.pdb
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/ref/LoggerService.dll

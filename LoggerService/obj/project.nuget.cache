@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nvsGp5dzNz9/Gaqs1n1CQiBZV+lrq131X6XOB+XvVgSIVYlb/sFqImj0yDujdrP4Fp0GMwW6MzWF719Be47guA==",
+  "success": true,
+  "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj",
+  "expectedPackageFiles": [
+    "/Users/quasar/.nuget/packages/nlog/5.2.2/nlog.5.2.2.nupkg.sha512"
+  ],
+  "logs": []
+}

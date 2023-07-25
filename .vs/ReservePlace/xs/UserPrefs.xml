@@ -1,0 +1,56 @@
+﻿<Properties StartupConfiguration="{0FD90345-C4BA-4749-991A-54F1E2E7F163}|https">
+  <MonoDevelop.Ide.ItemProperties.04-Api.Api PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <DisabledProjects>
+    <String>Api/LoggerService/LoggerService.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workbench ActiveDocument="LoggerService/LoggerManager.cs">
+    <Files>
+      <File FileName="Api/Controllers/Auth.cs" />
+      <File FileName="Api/appsettings.json" />
+      <File FileName="Api/appsettings.Development.json" />
+      <File FileName="Api/Program.cs" Line="3" Column="53" />
+      <File FileName="Infrastructure/Repositories/AuthRepo/JWTManagerRepository.cs" />
+      <File FileName="Infrastructure/Repositories/PlaceRepo/PlaceRepository.cs" />
+      <File FileName="Infrastructure/Repositories/UserRepo/UserRepository.cs" />
+      <File FileName="Api/Model/ErrorDetails.cs" />
+      <File FileName="Core/Models/Booking.cs" />
+      <File FileName="Infrastructure/Repositories/AuthRepo/IJWTManagerRepository.cs" />
+      <File FileName="Api/obj/Debug/net7.0/Api.AssemblyInfo.cs" />
+      <File FileName="LoggerService/ILoggerManager.cs" Line="11" Column="1" />
+      <File FileName="LoggerService/LoggerManager.cs" Line="26" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ReservePlace">
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="Infrastructure" expanded="True">
+                <Node name="Repositories" expanded="True">
+                  <Node name="AuthRepo" expanded="True" />
+                  <Node name="PlaceRepo" expanded="True" />
+                  <Node name="UserRepo" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="04-Api" expanded="True">
+              <Node name="Api">
+                <Node name="Dependencies" expanded="True">
+                  <Node name="ProjectDependencies" expanded="True" />
+                </Node>
+                <Node name="Controllers" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="LoggerService" expanded="True" />
+            <Node name="Test" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
