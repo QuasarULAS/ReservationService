@@ -10,6 +10,7 @@
         "dependencies": {
           "Core": "1.0.0",
           "Dapper": "2.0.143",
+          "Dapper.FastCrud": "3.1.46",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.9",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -22,6 +23,18 @@
           "lib/net5.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.0.143.55328"
+          }
+        }
+      },
+      "Dapper.FastCrud/3.1.46": {
+        "dependencies": {
+          "Dapper": "2.0.143",
+          "System.ComponentModel.Annotations": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Dapper.FastCrud.dll": {
+            "assemblyVersion": "3.1.46.0",
+            "fileVersion": "3.1.46.0"
           }
         }
       },
@@ -134,6 +147,7 @@
           }
         }
       },
+      "System.ComponentModel.Annotations/5.0.0": {},
       "System.Data.SqlClient/4.8.5": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -200,6 +214,13 @@
       "sha512": "sha512-Vh0U+Fins3IpS7APUlrzga3+1mswWngB5fZ0xj4w+FQR5JhJzA5uHV5rSepkahvmshNZUA0YcHtae9vFQpiVTw==",
       "path": "dapper/2.0.143",
       "hashPath": "dapper.2.0.143.nupkg.sha512"
+    },
+    "Dapper.FastCrud/3.1.46": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DkYoJthFpgFVieFCUysGmFUj+aqeYoP+TXBk0clwrgQRE+FaOp2HCPPAPmSzY1GzMYz9syvMyHpxLxl0LEZ69g==",
+      "path": "dapper.fastcrud/3.1.46",
+      "hashPath": "dapper.fastcrud.3.1.46.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
       "type": "package",
@@ -291,6 +312,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
+      "path": "system.componentmodel.annotations/5.0.0",
+      "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
     },
     "System.Data.SqlClient/4.8.5": {
       "type": "package",

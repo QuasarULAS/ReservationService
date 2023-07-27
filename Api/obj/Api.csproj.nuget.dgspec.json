@@ -29,9 +29,6 @@
             "projectReferences": {
               "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj": {
                 "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj"
-              },
-              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj": {
-                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj"
               }
             }
           }
@@ -164,7 +161,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj": {
+                "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -237,6 +238,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.143, )"
+            },
+            "Dapper.FastCrud": {
+              "target": "Package",
+              "version": "[3.1.46, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

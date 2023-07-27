@@ -13,8 +13,8 @@ public abstract class GetTotalDB
     [JsonIgnore] public int? Total { get; set; }
 }
 
-public class ListWithTotal<Type> where Type : GetTotalDB
+public class ListWithTotal<TType> where TType : GetTotalDB
 {
-    public int Total => ListData?.FirstOrDefault()?.Total ?? 0;
-    public IEnumerable<Type>? ListData { get; set; }
+    public int Total { get { return ListData.FirstOrDefault()?.Total ?? 0; } }
+    public IEnumerable<TType> ListData { get; set; }
 }

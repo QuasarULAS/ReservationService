@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "QrGmCz5UxpuMSgbTdHWwvdgCJGEr1y1ReD4Io4ukOtjH+Bcf5c+HQ1g5uIgO48HwQ3RSi8KNEDIlF8TZ0cAwWw==",
+  "dgSpecHash": "zl7EvbmB79fR575XArw4bi+0fw/hTT5QNjf2IdijWEOgyCJu4vTcWEg3HCJ7eLVutbENOmSrOgh7LYTwVLRweQ==",
   "success": true,
   "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/IntegrationTest.csproj",
   "expectedPackageFiles": [
     "/Users/quasar/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
+    "/Users/quasar/.nuget/packages/dapper.fastcrud/3.1.46/dapper.fastcrud.3.1.46.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.9/microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.diagnostics/2.2.0/microsoft.aspnetcore.diagnostics.2.2.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.diagnostics.abstractions/2.2.0/microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512",
@@ -74,7 +75,7 @@
     "/Users/quasar/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.collections.concurrent/4.3.0/system.collections.concurrent.4.3.0.nupkg.sha512",
-    "/Users/quasar/.nuget/packages/system.componentmodel.annotations/4.5.0/system.componentmodel.annotations.4.5.0.nupkg.sha512",
+    "/Users/quasar/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.console/4.3.0/system.console.4.3.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.data.sqlclient/4.8.5/system.data.sqlclient.4.8.5.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",

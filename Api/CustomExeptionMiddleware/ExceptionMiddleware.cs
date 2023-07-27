@@ -22,11 +22,6 @@ namespace Api.CustomExeptionMiddleware
             {
                 await _next(httpContext);
             }
-            catch (AccessViolationException avEx)
-            {
-                _logger.LogError($"A new violation exception has been thrown: {avEx}");
-                await HandleExceptionAsync(httpContext, avEx);
-            }
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong: {ex}");

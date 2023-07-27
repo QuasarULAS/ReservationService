@@ -10,9 +10,9 @@ namespace Api.Controllers;
 public class Places : Controller
 {
     [HttpPost("[action]")]
-    public IActionResult GetAllPlaces([FromBody] SearchPlacesDto spim)
+    public IActionResult SearchPlaces([FromBody] SearchPlacesDto spim)
     {
-        var list = PlaceRepository.GetAllPlaces(spim);
+        var list = PlaceRepository.SearchPlaces(spim);
 
         object obj1 = new { err = "null" };
         object obj2 = new { err = "null pl" };
@@ -35,22 +35,31 @@ public class Places : Controller
     }
 
     [HttpPut("[action]")]
-    public IActionResult EditPlace([FromBody] UpdatePlaceDto place)
+    public IActionResult UpdatePlace([FromBody] UpdatePlaceDto place)
     {
-        var IsPlaceEdited = PlaceRepository.EditPlace(place);
+        var IsPlaceEdited = PlaceRepository.UpdatePlace(place);
 
-        if (IsPlaceEdited == 0) return Ok("Place edited successfully.");
-        if (IsPlaceEdited == 2) return NotFound("This place doesn't exist!");
-        return BadRequest("bad request!");
+        //if (IsPlaceEdited == 0) return Ok("Place edited successfully.");
+        //if (IsPlaceEdited == 2) return NotFound("This place doesn't exist!");
+        //return BadRequest("bad request!");
     }
 
     [HttpDelete("[action]/{placeId:int}")]
     public IActionResult DeletePlace(int placeId)
     {
-        var IsPlaceDeleted = PlaceRepository.DeletePlace(placeId);
+        var _place = PlaceRepository.GetPlaceById(placeId);
 
-        if (IsPlaceDeleted == 0) return Ok("Place deleted successfully.");
-        if (IsPlaceDeleted == 2) return NotFound("This place doesn't exist!");
-        return BadRequest("bad request!");
+        if (_place)
+        {
+            PlaceRepository.DeletePlace(placeId);
+            return Ok("Place deleted successfully.")}
+        else
+        {
+            return NotFound("This place doesn't exist!");
+        }
+
+        //if (IsPlaceDeleted == 0) return Ok("Place deleted successfully.");
+        //if (IsPlaceDeleted == 2) return NotFound("This place doesn't exist!");
+        //return BadRequest("bad request!");
     }
 }

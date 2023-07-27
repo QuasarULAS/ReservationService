@@ -1,6 +1,8 @@
-﻿namespace Infrastructure.Repositories.BookingRepo.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class BookLogViewModel
+namespace Infrastructure.Repositories.BookingRepo.Model;
+
+public class BookLogVM
 {
     public int ReseveID { get; set; }
     public DateTime PlaceRegisterDate { get; set; }
@@ -17,7 +19,7 @@ public class MakeBookLogWithoutUserIdDto
     public int BookingPlaceId { get; set; }
     public int Price { get; set; }
 }
-
+[Table("BookLog")]
 public class MakeBookLogWithUserIdDto : MakeBookLogWithoutUserIdDto
 {
     public string BookingPersonId { get; set; }
@@ -25,7 +27,7 @@ public class MakeBookLogWithUserIdDto : MakeBookLogWithoutUserIdDto
 
 // this model is for checking if database
 // has reservation record or not
-public class BookLogRecordsDto
+public class BookLogRecordsVM
 {
     public DateTime ReservationDate { get; set; }
     public int BookingPlaceId { get; set; }

@@ -1,39 +1,37 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
-using System.Text;
+using Core.Base.Enum;
+using Core.Models;
 using Dapper;
+using Dapper.FastCrud;
 using Infrastructure.Repositories.PlaceRepo.Model;
-using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Repositories.PlaceRepo;
 
-public class PlaceRepository
+public class PlaceRepository : IPlaceRepository
 {
-    private static string _connectionString;
+    private static DbSession _session;
 
-    public PlaceRepository(IConfiguration iconfiguration)
+    public PlaceRepository(DbSession session)
     {
-        _connectionString = iconfiguration.GetConnectionString("DefaultConnection");
+        _session = session;
     }
 
-    public static object GetAllPlaces(SearchPlacesDto spim)
+    public async Task<SearchPlacesWithTotalAndListDto> SearchPlaces(SearchPlacesDto spim)
     {
-        if (spim == null) return new { err = "null" };
-        if (spim.Page == null || spim.Limit == null) return new { err = "null pl" };
-        if (spim.Page <= 0 || spim.Limit <= 0) return new { err = "<0" };
+        //if (spim == null) return new { err = "null" };
+        //if (spim.Page == null || spim.Limit == null) return new { err = "null pl" };
+        //if (spim.Page <= 0 || spim.Limit <= 0) return new { err = "<0" };
 
         int totalCount;
         List<SearchPlacesWithoutTotalDto> _list;
         List<SearchPlacesWithTotalDto> list;
-        using (IDbConnection db = new SqlConnection(_connectionString))
-        {
-            list = db.Query<SearchPlacesWithTotalDto>("MYSP_Search_Places_By_Title_And_Kind", spim,
-                commandType: CommandType.StoredProcedure).ToList();
-        }
+        list = (await _session.Connection.QueryAsync<SearchPlacesWithTotalDto>("MYSP_Search_Places_By_Title_And_Kind", spim,
+            commandType: CommandType.StoredProcedure)).ToList();
 
-        if (list.Count == 0) return new { err = "none" };
 
-        totalCount = list[0].TotalRecords;
+        //if (list.Count == 0) return new { err = "none" };
+
+        totalCount = list[0].Total;
         _list = list.Select(x => new SearchPlacesWithoutTotalDto
         {
             PlaceID = x.PlaceID,
@@ -45,85 +43,52 @@ public class PlaceRepository
         }).ToList();
 
         var allPlaces = new SearchPlacesWithTotalAndListDto();
-        allPlaces.TotalRecords = totalCount;
+        allPlaces.Total = totalCount;
         allPlaces.data = _list;
         return allPlaces;
     }
 
-    public static bool InsertPlace(InsertPlaceWithoutUserIdDto place, string Id)
+    public async Task<Places> GetPlaceById(int placeId)
     {
-        try
-        {
-            var newPlace = new InsertPlaceWithUserIdDto();
-            newPlace.Title = place.Title;
-            newPlace.Address = place.Address;
-            newPlace.GeographicalLocation = place.GeographicalLocation;
-            newPlace.PlaceTypeId = place.PlaceTypeId;
-            newPlace.RegistrantID = Id;
-
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var query =
-                    "INSERT INTO Places(Title,Address,PlaceTypeId,GeographicalLocation,RegistrantID) VALUES" +
-                    "(@Title,@Address,@PlaceTypeId,@GeographicalLocation,@RegistrantID)";
-                db.Execute(query, newPlace);
-            }
-
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
-        }
+        Places? Place;
+        Place = await _session.Connection.GetAsync(new Places { ID = placeId });
+        return Place;
     }
 
-    public static int EditPlace(UpdatePlaceDto place)
+    public async Task<bool> InsertPlace(InsertPlaceWithoutUserIdDto place, string Id)
     {
-        try
+        var newPlace = new InsertPlaceWithUserIdDto
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var underUpdatePlace =
-                    db.Query<PlacesVm>("select * from places where ID = @ID", place).FirstOrDefault();
-                if (underUpdatePlace == null) return 2;
+            Title = place.Title,
+            Address = place.Address,
+            GeographicalLocation = place.GeographicalLocation,
+            PlaceTypeId = place.PlaceTypeId,
+            RegistrantID = Id
+        };
 
-                var sb = new StringBuilder("UPDATE Places SET Title=COALESCE(@Title,Title)");
-                if (place.Address != null) sb.Append(",Address=@Address");
-                if (place.PlaceTypeId != null) sb.Append(",PlaceTypeId=@PlaceTypeId");
-                if (place.GeographicalLocation != null) sb.Append(",GeographicalLocation=@GeographicalLocation");
-                if (place.RegistrantID != null) sb.Append(",RegistrantID=@RegistrantID");
-                sb.Append(" WHERE ID = @ID ");
-                var query = sb.ToString();
-
-                db.Execute(query, place);
-            }
-
-            return 0;
-        }
-        catch
-        {
-            return 1;
-        }
+        await _session.Connection.InsertAsync(newPlace);
+        return true;
     }
 
-    public static int DeletePlace(int placeId)
+    public async Task<bool> UpdatePlace(UpdatePlaceDto place)
     {
-        try
+        bool IsUpdate;
+        Places oldData = await GetPlaceById((int)place.ID);
+        IsUpdate = await _session.Connection.UpdateAsync(new Places
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var underDeletePlace =
-                    db.Query<PlacesVm>("select * from places where ID = " + placeId).FirstOrDefault();
-                if (underDeletePlace == null) return 2;
-                var query = "DELETE FROM Places WHERE ID=@ID";
-                db.Execute(query, new { ID = placeId });
-            }
+            ID = (int)place.ID,
+            Address = place.Address ?? oldData.Address,
+            PlaceTypeId = place.PlaceTypeId.HasValue ? (EPlaceType)place.PlaceTypeId : oldData.PlaceTypeId,
+            GeographicalLocation = place.GeographicalLocation ?? oldData.GeographicalLocation,
+            RegistrantID = place.RegistrantID ?? oldData.RegistrantID,
+        });
+        return IsUpdate;
+    }
 
-            return 0;
-        }
-        catch (Exception)
-        {
-            return 1;
-        }
+    public async Task<bool> DeletePlace(int placeId)
+    {
+        bool isDelete;
+        isDelete = await _session.Connection.DeleteAsync(new Places { ID = placeId });
+        return isDelete;
     }
 }

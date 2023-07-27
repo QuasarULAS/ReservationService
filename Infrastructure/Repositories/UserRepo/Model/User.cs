@@ -1,25 +1,10 @@
-﻿namespace Infrastructure.Repositories.UserRepo.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+namespace Infrastructure.Repositories.UserRepo.Model;
 
-public class UsersViewModel
+[Table("Users")]
+public class InsertUserIM
 {
-    public Guid ID { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public bool Status { get; set; }
-    public DateTime RegisterDate { get; set; }
-}
-
-public class InsertUserInputModel
-{
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public bool Status { get; set; }
-}
-
-public class UpdateUserInputModel
-{
-    public Guid ID { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public bool Status { get; set; }
+    public string? Username { get; set; }
+    public string? Password { get; set; }
+    public bool? Status { get; set; }
 }

@@ -3,6 +3,7 @@ using Api.Extensions;
 using Infrastructure.Repositories.AuthRepo;
 using LoggerService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NLog;
@@ -72,7 +73,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseDeveloperExceptionPage();
 }
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();
@@ -80,8 +80,10 @@ var logger = app.Services.GetRequiredService<ILoggerManager>();
 app.ConfigureCustomExceptionMiddleware();
 
 
+
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

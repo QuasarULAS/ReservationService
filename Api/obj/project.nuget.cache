@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XunZO2dKmw+9eOjxQg+x06Gin5ugSDTluQkI0n8clwPLD04izlJCYuLoTkGy1TYBhoY3U4Sk70NhuH0LeORD2w==",
+  "dgSpecHash": "kxooO+oQEo39Qhuxykcxl0p/t92XaybDgbuarajqwZpxXexvuuT3JPCGdY5Dsujwlb1qCmsbEGr4y0bezOJrZw==",
   "success": true,
   "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/Api.csproj",
   "expectedPackageFiles": [
     "/Users/quasar/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
+    "/Users/quasar/.nuget/packages/dapper.fastcrud/3.1.46/dapper.fastcrud.3.1.46.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.9/microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.diagnostics/2.2.0/microsoft.aspnetcore.diagnostics.2.2.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.diagnostics.abstractions/2.2.0/microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512",
@@ -45,7 +46,7 @@
     "/Users/quasar/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
-    "/Users/quasar/.nuget/packages/system.componentmodel.annotations/4.5.0/system.componentmodel.annotations.4.5.0.nupkg.sha512",
+    "/Users/quasar/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.data.sqlclient/4.8.5/system.data.sqlclient.4.8.5.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.diagnostics.diagnosticsource/4.5.0/system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/system.identitymodel.tokens.jwt/6.15.1/system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",

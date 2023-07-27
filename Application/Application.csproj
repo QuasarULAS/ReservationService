@@ -10,4 +10,14 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="UserHandler\" />
+    <None Remove="PlaceHandler\" />
+    <None Remove="BookingHandler\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserHandler\" />
+    <Folder Include="PlaceHandler\" />
+    <Folder Include="BookingHandler\" />
+  </ItemGroup>
 </Project>

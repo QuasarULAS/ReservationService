@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "N6rk1JioU9aKvAl0m1jvoDlTICsWNbxc8SwmnoESNWS4WOy5JTETtCR1xzS+pduvDK4Gl38znJ1AmNFfpRRjxw==",
+  "dgSpecHash": "V7AiBa3YSIZBOFuDjspWwqZT9RIWqQKANsmwyJQyav1vlfTqXsbi9higkVyKB4hcby+3fQNMOn9H/KnZDqDBeQ==",
   "success": true,
   "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/quasar/.nuget/packages/nlog/5.2.2/nlog.5.2.2.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,67 +1,54 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 using Dapper;
+using Dapper.FastCrud;
 using Infrastructure.Repositories.BookingRepo.Model;
-using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Repositories.BookingRepo;
 
 public class BookingRepository
 {
-    private static string _connectionString;
+    private static DbSession _session;
 
-
-    public BookingRepository(IConfiguration iconfiguration)
+    public BookingRepository(DbSession session)
     {
-        _connectionString = iconfiguration.GetConnectionString("DefaultConnection");
+        _session = session;
     }
 
-    public static List<BookLogViewModel> BookLog()
+    public async Task<List<BookLogVM>> BookLog()
     {
-        List<BookLogViewModel> list;
-        using (IDbConnection db = new SqlConnection(_connectionString))
-        {
-            list = db.Query<BookLogViewModel>("exec MYSP_AllReservationDetails").ToList();
-        }
+        List<BookLogVM> list;
+        list = (await _session.Connection.QueryAsync<BookLogVM>("exec MYSP_AllReservationDetails")).ToList();
         return list;
     }
 
-    public static int InsertBookLog(MakeBookLogWithoutUserIdDto bookLog,
+    public async Task<BookLogRecordsVM> GetBookLogRecords(MakeBookLogWithoutUserIdDto bookLog)
+    {
+        var bkr = new BookLogRecordsVM
+        {
+            ReservationDate = bookLog.ReservationDate,
+            BookingPlaceId = bookLog.BookingPlaceId
+        };
+
+        BookLogRecordsVM? BooklogRecords;
+
+        BooklogRecords = (await _session.Connection.QueryAsync<BookLogRecordsVM>("MYSP_BookLogRecords", bkr, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+        return BooklogRecords;
+    }
+
+    public async Task<bool> InsertBookLog(MakeBookLogWithoutUserIdDto bookLog,
         string bookingPersonId)
     {
-        try
+
+        var bookLogReq = new MakeBookLogWithUserIdDto
         {
-            var bookLogReq = new MakeBookLogWithUserIdDto
-            {
-                ReservationDate = bookLog.ReservationDate,
-                BookingPersonId = bookingPersonId,
-                BookingPlaceId = bookLog.BookingPlaceId,
-                Price = bookLog.Price
-            };
+            ReservationDate = bookLog.ReservationDate,
+            BookingPersonId = bookingPersonId,
+            BookingPlaceId = bookLog.BookingPlaceId,
+            Price = bookLog.Price
+        };
 
-            var bkr = new BookLogRecordsDto
-            {
-                ReservationDate = bookLog.ReservationDate,
-                BookingPlaceId = bookLog.BookingPlaceId
-            };
+        await _session.Connection.InsertAsync(bookLogReq);
+        return true;
 
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var BooklogRecords =
-                    db.Query<BookLogRecordsDto>("MYSP_BookLogRecords", bkr, commandType: CommandType.StoredProcedure)
-                        .FirstOrDefault();
-
-                if (BooklogRecords != null) return 2;
-
-                var query =
-                    "insert into BookLog(ReservationDate,BookingPersonId,BookingPlaceId,Price) values(@ReservationDate,@BookingPersonId,@BookingPlaceId,@Price)";
-                db.Execute(query, bookLogReq);
-            }
-            return 0;
-        }
-        catch (Exception)
-        {
-            return 1;
-        }
     }
 }

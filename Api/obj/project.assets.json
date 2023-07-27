@@ -15,6 +15,23 @@
           }
         }
       },
+      "Dapper.FastCrud/3.1.46": {
+        "type": "package",
+        "dependencies": {
+          "Dapper": "2.0.123",
+          "System.ComponentModel.Annotations": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Dapper.FastCrud.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Dapper.FastCrud.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
         "type": "package",
         "dependencies": {
@@ -623,13 +640,17 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.ComponentModel.Annotations/4.5.0": {
+      "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp2.0/_._": {}
+          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp2.0/_._": {}
+          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Data.SqlClient/4.8.5": {
@@ -817,6 +838,9 @@
       "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "LoggerService": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Core.dll": {}
         },
@@ -830,6 +854,7 @@
         "dependencies": {
           "Core": "1.0.0",
           "Dapper": "2.0.143",
+          "Dapper.FastCrud": "3.1.46",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.9",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -872,6 +897,25 @@
         "lib/net5.0/Dapper.xml",
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "Dapper.FastCrud/3.1.46": {
+      "sha512": "DkYoJthFpgFVieFCUysGmFUj+aqeYoP+TXBk0clwrgQRE+FaOp2HCPPAPmSzY1GzMYz9syvMyHpxLxl0LEZ69g==",
+      "type": "package",
+      "path": "dapper.fastcrud/3.1.46",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dapper.fastcrud.3.1.46.nupkg.sha512",
+        "dapper.fastcrud.nuspec",
+        "lib/net461/Dapper.FastCrud.dll",
+        "lib/net461/Dapper.FastCrud.xml",
+        "lib/netstandard2.0/Dapper.FastCrud.dll",
+        "lib/netstandard2.0/Dapper.FastCrud.xml",
+        "lib/netstandard2.1/Dapper.FastCrud.dll",
+        "lib/netstandard2.1/Dapper.FastCrud.xml",
+        "logo.png"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
@@ -1816,13 +1860,14 @@
         "version.txt"
       ]
     },
-    "System.ComponentModel.Annotations/4.5.0": {
-      "sha512": "UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
+    "System.ComponentModel.Annotations/5.0.0": {
+      "sha512": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "type": "package",
-      "path": "system.componentmodel.annotations/4.5.0",
+      "path": "system.componentmodel.annotations/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
@@ -1830,11 +1875,11 @@
         "lib/net45/_._",
         "lib/net461/System.ComponentModel.Annotations.dll",
         "lib/netcore50/System.ComponentModel.Annotations.dll",
-        "lib/netcoreapp2.0/_._",
         "lib/netstandard1.4/System.ComponentModel.Annotations.dll",
         "lib/netstandard2.0/System.ComponentModel.Annotations.dll",
+        "lib/netstandard2.1/System.ComponentModel.Annotations.dll",
+        "lib/netstandard2.1/System.ComponentModel.Annotations.xml",
         "lib/portable-net45+win8/_._",
-        "lib/uap10.0.16299/_._",
         "lib/win8/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
@@ -1856,7 +1901,6 @@
         "ref/netcore50/ru/System.ComponentModel.Annotations.xml",
         "ref/netcore50/zh-hans/System.ComponentModel.Annotations.xml",
         "ref/netcore50/zh-hant/System.ComponentModel.Annotations.xml",
-        "ref/netcoreapp2.0/_._",
         "ref/netstandard1.1/System.ComponentModel.Annotations.dll",
         "ref/netstandard1.1/System.ComponentModel.Annotations.xml",
         "ref/netstandard1.1/de/System.ComponentModel.Annotations.xml",
@@ -1892,14 +1936,15 @@
         "ref/netstandard1.4/zh-hant/System.ComponentModel.Annotations.xml",
         "ref/netstandard2.0/System.ComponentModel.Annotations.dll",
         "ref/netstandard2.0/System.ComponentModel.Annotations.xml",
+        "ref/netstandard2.1/System.ComponentModel.Annotations.dll",
+        "ref/netstandard2.1/System.ComponentModel.Annotations.xml",
         "ref/portable-net45+win8/_._",
-        "ref/uap10.0.16299/_._",
         "ref/win8/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.componentmodel.annotations.4.5.0.nupkg.sha512",
+        "system.componentmodel.annotations.5.0.0.nupkg.sha512",
         "system.componentmodel.annotations.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -2312,7 +2357,6 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Application >= 1.0.0",
-      "LoggerService >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics >= 2.2.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.9",
       "NLog >= 5.2.2",
@@ -2347,9 +2391,6 @@
           "projectReferences": {
             "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj": {
               "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj"
-            },
-            "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj": {
-              "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj"
             }
           }
         }

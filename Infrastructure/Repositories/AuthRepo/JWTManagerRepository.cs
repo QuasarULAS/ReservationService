@@ -13,25 +13,24 @@ namespace Infrastructure.Repositories.AuthRepo;
 public class JWTManagerRepository : IJWTManagerRepository
 {
     private readonly IConfiguration iconfiguration;
+    private static string? _connectionString;
 
     public JWTManagerRepository(IConfiguration iconfiguration)
     {
-        this.iconfiguration = iconfiguration;
+        _connectionString = iconfiguration.GetConnectionString("DefaultConnection");
     }
 
     public Tokens Authenticate(UserAuthenticateM users)
     {
-        var connectionString = iconfiguration.GetConnectionString("DefaultConnection");
-
-        IDbConnection db = new SqlConnection(connectionString);
+        IDbConnection db = new SqlConnection(_connectionString);
         db.Open();
         var UsersRecords =
             db.Query<UserWithId>(
                 "select Username,Password,ID from Users where Username=@Username and Password=@Password",
                 new { users.Username, users.Password }).FirstOrDefault();
+        db.Close();
 
         if (UsersRecords == null) return null;
-        db.Close();
 
         // Else we generate JSON Web Token
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -43,7 +42,7 @@ public class JWTManagerRepository : IJWTManagerRepository
                 new(ClaimTypes.Name, UsersRecords.Username),
                 new Claim("ID", UsersRecords.ID.ToString())
             }),
-            Expires = DateTime.UtcNow.AddMinutes(1000),
+            Expires = DateTime.UtcNow.AddMinutes(100),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),
                 SecurityAlgorithms.HmacSha256Signature)
         };

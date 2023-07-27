@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.Repositories.PlaceRepo.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Infrastructure.Repositories.PlaceRepo.Model;
 
 public class BasePlace
 {
@@ -23,6 +25,7 @@ public class InsertPlaceWithoutUserIdDto
     public string GeographicalLocation { get; set; }
 }
 
+[Table("Places")]
 public class InsertPlaceWithUserIdDto : InsertPlaceWithoutUserIdDto
 {
     public string RegistrantID { get; set; }
@@ -40,7 +43,7 @@ public class UpdatePlaceDto
 
 public class SearchPlacesWithTotalDto
 {
-    public int TotalRecords { get; set; }
+    public int Total { get; set; }
     public int PlaceID { get; set; }
     public string PlaceName { get; set; }
     public string Address { get; set; }
@@ -51,7 +54,7 @@ public class SearchPlacesWithTotalDto
 
 public class SearchPlacesWithTotalAndListDto
 {
-    public int TotalRecords { get; set; }
+    public int Total { get; set; }
     public IEnumerable<SearchPlacesWithoutTotalDto> data { get; set; }
 }
 

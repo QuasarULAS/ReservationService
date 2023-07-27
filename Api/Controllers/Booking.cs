@@ -11,7 +11,7 @@ public class Booking : Controller
 {
     [HttpGet]
     [Route("[action]")]
-    public List<BookLogViewModel> GetAllBookLogDetails()
+    public List<BookLogVM> GetAllBookLogDetails()
     {
         var list = BookingRepository.BookLog();
         return list;
@@ -23,8 +23,8 @@ public class Booking : Controller
     {
         var id = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "ID");
         var isReserved = BookingRepository.InsertBookLog(bookLogDetails, id.Value);
-        if (isReserved == 0) return Ok("Successful!");
-        if (isReserved == 2) return BadRequest("This Place Is Reserved By Another Person In This Time.");
-        return BadRequest("bad request");
+        //if (isReserved == 0) return Ok("Successful!");
+        //if (isReserved == 2) return BadRequest("This Place Is Reserved By Another Person In This Time.");
+        //return BadRequest("bad request");
     }
 }
