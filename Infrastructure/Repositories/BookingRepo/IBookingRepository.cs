@@ -1,14 +1,13 @@
-﻿using System;
-using Infrastructure.Repositories.BookingRepo.Model;
+﻿using Infrastructure.Repositories.BookingRepo.Model;
 
-namespace Infrastructure.Repositories.BookingRepo
+namespace Infrastructure.Repositories.BookingRepo;
+
+public interface IBookingRepository
 {
-    public interface IBookingRepository
-    {
-        Task<List<BookLogVM>> BookLog();
-        Task<BookLogRecordsVM> GetBookLogRecords(MakeBookLogWithoutUserIdDto bookLog);
-        Task<bool> InsertBookLog(MakeBookLogWithoutUserIdDto bookLog,
-        string bookingPersonId);
-    }
+    Task<List<BookLogVM>> GetAllBookLog();
+    Task<BookLogRecordsVM> GetBookLogRecords(BookLogRecordsVM bkr);
+    Task<bool> InsertBookLog(MakeBookLogWithoutUserIdIM bookLog,
+    Guid bookingPersonId);
 }
+
 

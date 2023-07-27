@@ -108,3 +108,9 @@ D:/Code/WebDevelopment/tamrin/ReservePlace/Api/obj/Debug/net7.0/Api.MvcApplicati
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/LoggerService.dll
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/LoggerService.pdb
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/nlog.config
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/Dapper.FastCrud.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/DayaResultHelper.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/MediatR.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/MediatR.Contracts.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Api/bin/Debug/net7.0/MediatR.Extensions.Microsoft.DependencyInjection.dll

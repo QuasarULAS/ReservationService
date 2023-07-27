@@ -1,7 +1,9 @@
-﻿using Infrastructure.Repositories.PlaceRepo;
-using Infrastructure.Repositories.PlaceRepo.Model;
+﻿using Application.Services.PlaceHandler;
+using Application.Services.PlaceHandler.Dto;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ResultHelper;
 
 namespace Api.Controllers;
 
@@ -9,57 +11,47 @@ namespace Api.Controllers;
 [Route("[controller]")]
 public class Places : Controller
 {
-    [HttpPost("[action]")]
-    public IActionResult SearchPlaces([FromBody] SearchPlacesDto spim)
+
+    private IMediator _mediator;
+
+    public Places(Mediator mediator)
     {
-        var list = PlaceRepository.SearchPlaces(spim);
-
-        object obj1 = new { err = "null" };
-        object obj2 = new { err = "null pl" };
-        object obj3 = new { err = "<0" };
-        object obj4 = new { err = "none" };
-
-        if (list.ToString() == obj1.ToString()) return BadRequest("Input must not be null!");
-        if (list.ToString() == obj2.ToString()) return BadRequest("page and limit must not be null!");
-        if (list.ToString() == obj3.ToString()) return BadRequest("page and limit must be grater than 0!");
-        if (list.ToString() == obj4.ToString()) return NoContent();
-        return Ok(list);
+        _mediator = mediator;
     }
 
+    ///<summary>جستوجوی پیشرفته مکان ها</summary>
     [HttpPost("[action]")]
-    public IActionResult InsertPlace([FromBody] InsertPlaceWithoutUserIdDto place)
+    public async Task<ActionResult<ApiResult<SearchPlacesWithTotalAndListVM>>> SearchPlaces([FromBody] SearchPlaceRequest data)
     {
-        var id = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "ID");
-        var IsPlaceAdded = PlaceRepository.InsertPlace(place, id.Value);
-        return IsPlaceAdded ? Ok("Place Added Successfully.") : BadRequest("Bad Request!");
+        var result = await _mediator.Send(data);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
     }
 
+    ///<summary>ایجاد مکان</summary>
+    [HttpPost("[action]")]
+    public async Task<ActionResult<ApiResult<bool>>> InsertPlace([FromBody] InsertPlaceRequest data)
+    {
+        var result = await _mediator.Send(data);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
+    }
+
+    ///<summary>آپدیت مکان</summary>
     [HttpPut("[action]")]
-    public IActionResult UpdatePlace([FromBody] UpdatePlaceDto place)
+    public async Task<ActionResult<ApiResult<bool>>> UpdatePlace([FromBody] UpdatePlaceRequest data)
     {
-        var IsPlaceEdited = PlaceRepository.UpdatePlace(place);
-
-        //if (IsPlaceEdited == 0) return Ok("Place edited successfully.");
-        //if (IsPlaceEdited == 2) return NotFound("This place doesn't exist!");
-        //return BadRequest("bad request!");
+        var result = await _mediator.Send(data);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
     }
 
+    ///<summary>حذف مکان</summary>
     [HttpDelete("[action]/{placeId:int}")]
-    public IActionResult DeletePlace(int placeId)
+    public async Task<ActionResult<ApiResult<bool>>> DeletePlace(DeletePlaceRequest param)
     {
-        var _place = PlaceRepository.GetPlaceById(placeId);
-
-        if (_place)
-        {
-            PlaceRepository.DeletePlace(placeId);
-            return Ok("Place deleted successfully.")}
-        else
-        {
-            return NotFound("This place doesn't exist!");
-        }
-
-        //if (IsPlaceDeleted == 0) return Ok("Place deleted successfully.");
-        //if (IsPlaceDeleted == 2) return NotFound("This place doesn't exist!");
-        //return BadRequest("bad request!");
+        var result = await _mediator.Send(param);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
     }
 }

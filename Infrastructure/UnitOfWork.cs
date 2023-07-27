@@ -1,72 +1,64 @@
-﻿using System;
-using System.Data;
-using Infrastructure.Repositories.UserRepo;
+﻿using System.Data;
 using Infrastructure.Repositories.AuthRepo;
 using Infrastructure.Repositories.BookingRepo;
 using Infrastructure.Repositories.PlaceRepo;
 
-namespace Infrastructure
+namespace Infrastructure;
+
+public class UnitOfWork : Infrastructure.Repositories.UnitOfWork, Infrastructure.IUnitOfWork
 {
-    public class UnitOfWork : Infrastructure.Repositories.UnitOfWork, Infrastructure.IUnitOfWork
+    public bool IsDisposed { get; set; }
+    public IDbConnection DbConnection { get; }
+    public DbSession _session { get; }
+    public IAuthRepository Auth { get; }
+    public IBookingRepository Booking { get; }
+    public IPlaceRepository Place { get; }
+
+    public UnitOfWork(
+
+       IAuthRepository jwtRepository,
+       IBookingRepository bookingRepository,
+       IPlaceRepository placeRepository,
+       IDbConnection dbConnection,
+       DbSession dbSession
+        ) : base(dbSession)
     {
-        public bool IsDisposed { get; set; }
-        public IDbConnection DbConnection { get; }
-        public DbSession _session { get; }
-        public IJWTManagerRepository Auth { get; }
-        public IUserRepository User { get; }
-        public IBookingRepository Booking { get; }
-        public IPlaceRepository Place { get; }
+        DbConnection = dbConnection;
+        Auth = jwtRepository;
+        Booking = bookingRepository;
+        Place = placeRepository;
+        _session = dbSession;
+    }
 
-        public UnitOfWork(
-
-           IJWTManagerRepository jwtRepository,
-           IUserRepository userRepository,
-           IBookingRepository bookingRepository,
-           IPlaceRepository placeRepository,
-           IDbConnection dbConnection,
-           DbSession dbSession
-            ) : base(dbSession)
-
+    protected virtual void Dispose(bool disposing)
+    {
+        if (IsDisposed)
         {
-            DbConnection = dbConnection;
-            Auth = jwtRepository;
-            User = userRepository;
-            Booking = bookingRepository;
-            Place = placeRepository;
-            _session = dbSession;
+            return;
         }
+        if (disposing) { }
+        IsDisposed = true;
+    }
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (IsDisposed)
-            {
-                return;
-            }
-            if (disposing) { }
+    protected void NewRollBack()
+    {
+        _session.Transaction.Rollback();
+    }
 
+    ~UnitOfWork()
+    {
+        Dispose(false);
+    }
 
-            IsDisposed = true;
-        }
+    public Task SaveAsync()
+    {
+        throw new NotImplementedException();
+    }
 
-        protected void NewRollBack()
-        {
-            _session.Transaction.Rollback();
-        }
-
-        ~UnitOfWork()
-        {
-            Dispose(false);
-        }
-
-        public Task SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            DbConnection.Dispose();
-        }
+    public void Dispose()
+    {
+        DbConnection.Dispose();
     }
 }
+
 

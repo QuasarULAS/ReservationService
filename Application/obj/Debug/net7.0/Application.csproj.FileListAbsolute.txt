@@ -32,3 +32,5 @@ D:/Code/WebDevelopment/tamrin/ReservePlace/Application/obj/Debug/net7.0/ref/Appl
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/obj/Debug/net7.0/refint/Application.dll
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/obj/Debug/net7.0/Application.pdb
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/obj/Debug/net7.0/ref/Application.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/bin/Debug/net7.0/LoggerService.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/bin/Debug/net7.0/LoggerService.pdb

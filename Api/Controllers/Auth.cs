@@ -1,43 +1,43 @@
-﻿using Infrastructure.Repositories.AuthRepo;
+﻿using Application.Services.AuthHandler;
 using Infrastructure.Repositories.AuthRepo.Model;
-using Infrastructure.Repositories.UserRepo;
-using Infrastructure.Repositories.UserRepo.Model;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ResultHelper;
 
 namespace Api.Controllers;
 
-[Authorize]
 [Route("[controller]")]
 [ApiController]
-public class AuthController : ControllerBase
+public class Auth : ControllerBase
 {
-    private readonly IJWTManagerRepository _jWTManager;
+    private IMediator _mediator;
 
-    public AuthController(IJWTManagerRepository jWTManager)
+    public Auth(Mediator mediator)
     {
-        _jWTManager = jWTManager;
+        _mediator = mediator;
     }
 
     // LoginWithUserPassword
     [AllowAnonymous]
+    ///<summary>دریافت توکن</summary>
     [HttpPost]
-    [Route("authenticate")]
-    public IActionResult Authenticate(UserAuthenticateM usersdata)
+    [Route("Authenticate")]
+    public async Task<ActionResult<ApiResult<Tokens>>> Authenticate(AuthenticateRequest data)
     {
-        var token = _jWTManager.Authenticate(usersdata);
-
-        if (token == null) return Unauthorized();
-
-        return Ok(token);
+        var result = await _mediator.Send(data);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
     }
 
     // Registration
     [AllowAnonymous]
+    ///<summary>ثبت کاربر</summary>
     [HttpPost("[action]")]
-    public IActionResult RegisterUser([FromBody] InsertUserInputModel user)
+    public async Task<ActionResult<ApiResult<bool>>> RegisterUser([FromBody] RegisterUserRequest data)
     {
-        var IsUserAdded = UserRepository.InsertUser(user);
-        return IsUserAdded ? Ok("User Added Successfully.") : BadRequest("Bad Request!");
+        var result = await _mediator.Send(data);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
     }
 }

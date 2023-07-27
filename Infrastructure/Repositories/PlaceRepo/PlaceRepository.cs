@@ -16,36 +16,12 @@ public class PlaceRepository : IPlaceRepository
         _session = session;
     }
 
-    public async Task<SearchPlacesWithTotalAndListDto> SearchPlaces(SearchPlacesDto spim)
+    public async Task<List<SearchPlacesWithTotalVM>> SearchPlaces(SearchPlacesIM spim)
     {
-        //if (spim == null) return new { err = "null" };
-        //if (spim.Page == null || spim.Limit == null) return new { err = "null pl" };
-        //if (spim.Page <= 0 || spim.Limit <= 0) return new { err = "<0" };
-
-        int totalCount;
-        List<SearchPlacesWithoutTotalDto> _list;
-        List<SearchPlacesWithTotalDto> list;
-        list = (await _session.Connection.QueryAsync<SearchPlacesWithTotalDto>("MYSP_Search_Places_By_Title_And_Kind", spim,
+        List<SearchPlacesWithTotalVM> list;
+        list = (await _session.Connection.QueryAsync<SearchPlacesWithTotalVM>("MYSP_Search_Places_By_Title_And_Kind", spim,
             commandType: CommandType.StoredProcedure)).ToList();
-
-
-        //if (list.Count == 0) return new { err = "none" };
-
-        totalCount = list[0].Total;
-        _list = list.Select(x => new SearchPlacesWithoutTotalDto
-        {
-            PlaceID = x.PlaceID,
-            PlaceName = x.PlaceName,
-            Address = x.Address,
-            GeographicalLocation = x.GeographicalLocation,
-            BookingPerson = x.BookingPerson,
-            PlaceKind = x.PlaceKind
-        }).ToList();
-
-        var allPlaces = new SearchPlacesWithTotalAndListDto();
-        allPlaces.Total = totalCount;
-        allPlaces.data = _list;
-        return allPlaces;
+        return list;
     }
 
     public async Task<Places> GetPlaceById(int placeId)
@@ -55,7 +31,7 @@ public class PlaceRepository : IPlaceRepository
         return Place;
     }
 
-    public async Task<bool> InsertPlace(InsertPlaceWithoutUserIdDto place, string Id)
+    public async Task<bool> InsertPlace(InsertPlaceWithoutUserIdIM place, Guid Id)
     {
         var newPlace = new InsertPlaceWithUserIdDto
         {
@@ -70,7 +46,7 @@ public class PlaceRepository : IPlaceRepository
         return true;
     }
 
-    public async Task<bool> UpdatePlace(UpdatePlaceDto place)
+    public async Task<bool> UpdatePlace(UpdatePlaceIM place)
     {
         bool IsUpdate;
         Places oldData = await GetPlaceById((int)place.ID);

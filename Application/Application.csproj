@@ -11,13 +11,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="UserHandler\" />
-    <None Remove="PlaceHandler\" />
-    <None Remove="BookingHandler\" />
+    <None Remove="Services\" />
+    <None Remove="Services\PlaceHandler\" />
+    <None Remove="Services\BookingHandler\" />
+    <None Remove="Services\PlaceHandler\Dto\" />
+    <None Remove="Services\AuthHandler\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserHandler\" />
-    <Folder Include="PlaceHandler\" />
-    <Folder Include="BookingHandler\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\PlaceHandler\" />
+    <Folder Include="Services\BookingHandler\" />
+    <Folder Include="Services\PlaceHandler\Dto\" />
+    <Folder Include="Services\AuthHandler\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DayaResultHelper" Version="1.0.5" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
 </Project>

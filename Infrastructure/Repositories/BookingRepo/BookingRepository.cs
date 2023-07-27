@@ -5,7 +5,7 @@ using Infrastructure.Repositories.BookingRepo.Model;
 
 namespace Infrastructure.Repositories.BookingRepo;
 
-public class BookingRepository
+public class BookingRepository : IBookingRepository
 {
     private static DbSession _session;
 
@@ -14,14 +14,14 @@ public class BookingRepository
         _session = session;
     }
 
-    public async Task<List<BookLogVM>> BookLog()
+    public async Task<List<BookLogVM>> GetAllBookLog()
     {
         List<BookLogVM> list;
         list = (await _session.Connection.QueryAsync<BookLogVM>("exec MYSP_AllReservationDetails")).ToList();
         return list;
     }
 
-    public async Task<BookLogRecordsVM> GetBookLogRecords(MakeBookLogWithoutUserIdDto bookLog)
+    public async Task<BookLogRecordsVM> GetBookLogRecords(BookLogRecordsVM bookLog)
     {
         var bkr = new BookLogRecordsVM
         {
@@ -35,8 +35,8 @@ public class BookingRepository
         return BooklogRecords;
     }
 
-    public async Task<bool> InsertBookLog(MakeBookLogWithoutUserIdDto bookLog,
-        string bookingPersonId)
+    public async Task<bool> InsertBookLog(MakeBookLogWithoutUserIdIM bookLog,
+        Guid bookingPersonId)
     {
 
         var bookLogReq = new MakeBookLogWithUserIdDto
@@ -49,6 +49,5 @@ public class BookingRepository
 
         await _session.Connection.InsertAsync(bookLogReq);
         return true;
-
     }
 }

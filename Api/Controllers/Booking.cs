@@ -1,7 +1,11 @@
-﻿using Infrastructure.Repositories.BookingRepo;
+﻿using Application.Services.BookingHandler;
+using Infrastructure.Repositories.BookingRepo;
 using Infrastructure.Repositories.BookingRepo.Model;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ResultHelper;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Api.Controllers;
 
@@ -9,22 +13,29 @@ namespace Api.Controllers;
 [Route("[controller]")]
 public class Booking : Controller
 {
-    [HttpGet]
-    [Route("[action]")]
-    public List<BookLogVM> GetAllBookLogDetails()
+    private IMediator _mediator;
+
+    public Booking(Mediator mediator)
     {
-        var list = BookingRepository.BookLog();
-        return list;
+        _mediator = mediator;
     }
 
+    [HttpGet]
+    [Route("[action]")]
+    public async Task<ActionResult<ApiResult<List<BookLogVM>>>> GetAllBookLogDetails()
+    {
+        var result = await _mediator.Send(new GetAllReservationRequest());
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
+    }
+
+    ///<summary>رزرو مکان</summary>
     [HttpPost]
     [Route("[action]")]
-    public IActionResult ReservePlace([FromBody] MakeBookLogWithoutUserIdDto bookLogDetails)
+    public async Task<ActionResult<ApiResult<bool>>> ReservePlace([FromBody] MakeReservationRequest data)
     {
-        var id = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "ID");
-        var isReserved = BookingRepository.InsertBookLog(bookLogDetails, id.Value);
-        //if (isReserved == 0) return Ok("Successful!");
-        //if (isReserved == 2) return BadRequest("This Place Is Reserved By Another Person In This Time.");
-        //return BadRequest("bad request");
+        var result = await _mediator.Send(data);
+        if (result.IsSuccess) return Ok(value: result);
+        else return BadRequest(error: result);
     }
 }

@@ -28,3 +28,5 @@ D:/Code/WebDevelopment/tamrin/ReservePlace/Infrastructure/obj/Debug/net7.0/ref/I
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/obj/Debug/net7.0/refint/Infrastructure.dll
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/obj/Debug/net7.0/Infrastructure.pdb
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/obj/Debug/net7.0/ref/Infrastructure.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/bin/Debug/net7.0/LoggerService.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/bin/Debug/net7.0/LoggerService.pdb

@@ -22,3 +22,6 @@ D:/Code/WebDevelopment/tamrin/ReservePlace/Core/obj/Debug/net7.0/ref/Core.dll
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/obj/Debug/net7.0/refint/Core.dll
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/obj/Debug/net7.0/Core.pdb
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/obj/Debug/net7.0/ref/Core.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/bin/Debug/net7.0/LoggerService.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/bin/Debug/net7.0/LoggerService.pdb
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/obj/Debug/net7.0/Core.csproj.CopyComplete

@@ -1,20 +1,37 @@
 using System.Text;
 using Api.Extensions;
-using Infrastructure.Repositories.AuthRepo;
 using LoggerService;
+using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+//builder.Services.AddEndpointsApiExplorer();
+
+//builder.Services.AddCors(options => options.AddPolicy("MyPolicy",
+// builder =>
+// {
+//     builder.AllowAnyHeader()
+//            .AllowAnyMethod()
+//            .SetIsOriginAllowed((host) => true)
+//            .AllowCredentials();
+// }));
+
+
+builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
+//builder.Services.AddResult("http://185.165.118.211:4010/Message/GetDic");
+//builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+//builder.Services.AddApplication();
+builder.Services.AddInfrastructure(configuration);
+
 
 // for swagger authorization
 builder.Services.AddSwaggerGen(c =>
@@ -61,10 +78,9 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
-builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
-builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
-
 builder.Services.AddControllers();
+
+
 
 var app = builder.Build();
 
@@ -76,16 +92,10 @@ if (app.Environment.IsDevelopment())
 }
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();
-//app.ConfigureExceptionHandler(logger);
 app.ConfigureCustomExceptionMiddleware();
 
-
-
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
