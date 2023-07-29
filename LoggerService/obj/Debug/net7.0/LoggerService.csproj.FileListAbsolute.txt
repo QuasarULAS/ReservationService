@@ -10,3 +10,15 @@
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/refint/LoggerService.dll
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/LoggerService.pdb
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/obj/Debug/net7.0/ref/LoggerService.dll
+D:\Code\Tamirn\ReservationService\LoggerService\bin\Debug\net7.0\LoggerService.deps.json
+D:\Code\Tamirn\ReservationService\LoggerService\bin\Debug\net7.0\LoggerService.dll
+D:\Code\Tamirn\ReservationService\LoggerService\bin\Debug\net7.0\LoggerService.pdb
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.csproj.AssemblyReference.cache
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.AssemblyInfoInputs.cache
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.AssemblyInfo.cs
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.csproj.CoreCompileInputs.cache
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.dll
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\refint\LoggerService.dll
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\LoggerService.pdb
+D:\Code\Tamirn\ReservationService\LoggerService\obj\Debug\net7.0\ref\LoggerService.dll

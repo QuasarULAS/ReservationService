@@ -1214,32 +1214,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/quasar/.nuget/packages/": {}
+    "C:\\Users\\quasa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj",
+      "projectUniqueName": "D:\\Code\\Tamirn\\ReservationService\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/Infrastructure.csproj",
-      "packagesPath": "/Users/quasar/.nuget/packages/",
-      "outputPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Infrastructure/obj/",
+      "projectPath": "D:\\Code\\Tamirn\\ReservationService\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\quasa\\.nuget\\packages\\",
+      "outputPath": "D:\\Code\\Tamirn\\ReservationService\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/quasar/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\quasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj": {
-              "projectPath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj"
+            "D:\\Code\\Tamirn\\ReservationService\\Core\\Core.csproj": {
+              "projectPath": "D:\\Code\\Tamirn\\ReservationService\\Core\\Core.csproj"
             }
           }
         }
@@ -1287,7 +1289,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

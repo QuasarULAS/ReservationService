@@ -29,9 +29,7 @@ public class BookingRepository : IBookingRepository
             BookingPlaceId = bookLog.BookingPlaceId
         };
 
-        BookLogRecordsVM? BooklogRecords;
-
-        BooklogRecords = (await _session.Connection.QueryAsync<BookLogRecordsVM>("MYSP_BookLogRecords", bkr, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+        BookLogRecordsVM? BooklogRecords = (await _session.Connection.QueryAsync<BookLogRecordsVM>("MYSP_BookLogRecords", bkr, commandType: CommandType.StoredProcedure)).FirstOrDefault();
         return BooklogRecords;
     }
 

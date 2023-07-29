@@ -49,14 +49,14 @@ public class PlaceRepository : IPlaceRepository
     public async Task<bool> UpdatePlace(UpdatePlaceIM place)
     {
         bool IsUpdate;
-        Places oldData = await GetPlaceById((int)place.ID);
-        IsUpdate = await _session.Connection.UpdateAsync(new Places
+        IsUpdate = await _session.Connection.UpdateAsync(new UpdatePlaceIM
         {
             ID = (int)place.ID,
-            Address = place.Address ?? oldData.Address,
-            PlaceTypeId = place.PlaceTypeId.HasValue ? (EPlaceType)place.PlaceTypeId : oldData.PlaceTypeId,
-            GeographicalLocation = place.GeographicalLocation ?? oldData.GeographicalLocation,
-            RegistrantID = place.RegistrantID ?? oldData.RegistrantID,
+            Title = place.Title,
+            Address = place.Address,
+            PlaceTypeId = place.PlaceTypeId,
+            GeographicalLocation = place.GeographicalLocation,
+            RegistrantID = place.RegistrantID,
         });
         return IsUpdate;
     }

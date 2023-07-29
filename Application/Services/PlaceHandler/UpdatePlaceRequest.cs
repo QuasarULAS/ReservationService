@@ -1,6 +1,9 @@
-﻿using Infrastructure;
+﻿using Core.Base.Enum;
+using Core.Models;
+using Infrastructure;
 using Infrastructure.Repositories.PlaceRepo.Model;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using ResultHelper;
 
 namespace Application.Services.PlaceHandler
@@ -25,10 +28,12 @@ namespace Application.Services.PlaceHandler
             {
                 return _apiResult.WithSuccess(EStatusCode.NotFound);
             }
+            bool IsUpdate;
 
             UpdatePlaceIM requestModel = new()
             {
                 ID = request.ID,
+                Title = request.Title,
                 Address = request.Address,
                 PlaceTypeId = request.PlaceTypeId,
                 GeographicalLocation = request.GeographicalLocation,

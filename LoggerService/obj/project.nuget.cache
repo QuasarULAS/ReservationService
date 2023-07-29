@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nvsGp5dzNz9/Gaqs1n1CQiBZV+lrq131X6XOB+XvVgSIVYlb/sFqImj0yDujdrP4Fp0GMwW6MzWF719Be47guA==",
+  "dgSpecHash": "Bjie7mksLaiFIBRNIcBX0k61gm2LTkSXSJHWi+cdvglALq2Qakr3SJtnt4l03NC1NF2L5iBIw/xUgFd8nQ5gcA==",
   "success": true,
-  "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/LoggerService/LoggerService.csproj",
+  "projectFilePath": "D:\\Code\\Tamirn\\ReservationService\\LoggerService\\LoggerService.csproj",
   "expectedPackageFiles": [
-    "/Users/quasar/.nuget/packages/nlog/5.2.2/nlog.5.2.2.nupkg.sha512"
+    "C:\\Users\\quasa\\.nuget\\packages\\nlog\\5.2.2\\nlog.5.2.2.nupkg.sha512"
   ],
   "logs": []
 }

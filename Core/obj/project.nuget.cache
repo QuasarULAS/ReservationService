@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RgRo19A+58nKD531SsiBR7EjcnIXwHI7bcx7MWkbtbmbOYCtbLniId0b0t2/2w1Fb7NJpbCeQRDjGZBn24sYHA==",
+  "dgSpecHash": "zHuyCz6fQ0XM6/QX7cAFiLH/+OsrFZ7P3l9qIhOOy6SmcgQGXlAGwxfMT4h5Bnbb6DQQ9iEyFkFzGYCTy1lcDg==",
   "success": true,
-  "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Core/Core.csproj",
+  "projectFilePath": "D:\\Code\\Tamirn\\ReservationService\\Core\\Core.csproj",
   "expectedPackageFiles": [
-    "/Users/quasar/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
-    "/Users/quasar/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
-    "/Users/quasar/.nuget/packages/nlog/5.2.2/nlog.5.2.2.nupkg.sha512"
+    "C:\\Users\\quasa\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\quasa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\quasa\\.nuget\\packages\\nlog\\5.2.2\\nlog.5.2.2.nupkg.sha512"
   ],
   "logs": []
 }

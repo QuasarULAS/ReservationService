@@ -1,10 +1,13 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Core.Base.Pagination;
 
 public class BasePaginationVM
 {
-    public int? Page { get; set; }
+    [Required]
+    public int Page { get; set; }
+    [Required]
     public int? Limit { get; set; }
 }
 

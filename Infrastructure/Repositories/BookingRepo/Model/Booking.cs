@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infrastructure.Repositories.BookingRepo.Model;
 
@@ -15,13 +16,17 @@ public class BookLogVM
 
 public class MakeBookLogWithoutUserIdIM
 {
+    [Required]
     public DateTime ReservationDate { get; set; }
+    [Required]
     public int BookingPlaceId { get; set; }
+    [Required]
     public int Price { get; set; }
 }
 [Table("BookLog")]
 public class MakeBookLogWithUserIdDto : MakeBookLogWithoutUserIdIM
 {
+    [Required]
     public Guid BookingPersonId { get; set; }
 }
 

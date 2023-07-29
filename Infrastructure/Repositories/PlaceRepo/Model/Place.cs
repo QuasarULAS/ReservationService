@@ -7,27 +7,39 @@ namespace Infrastructure.Repositories.PlaceRepo.Model;
 
 public class InsertPlaceWithoutUserIdIM
 {
-    public string? Title { get; set; }
-    public string? Address { get; set; }
-    public EPlaceType? PlaceTypeId { get; set; }
-    public string? GeographicalLocation { get; set; }
+    [Required]
+    public string Title { get; set; }
+    [Required]
+    public string Address { get; set; }
+    [Required]
+    public EPlaceType PlaceTypeId { get; set; }
+    [Required]
+    public string GeographicalLocation { get; set; }
 }
 
 [Table("Places")]
 public class InsertPlaceWithUserIdDto : InsertPlaceWithoutUserIdIM
 {
-    public Guid? RegistrantID { get; set; }
+    [Required]
+    public Guid RegistrantID { get; set; }
 }
 
+[Table("Places")]
 public class UpdatePlaceIM
 {
+    [Key]
     [Required]
     public int ID { get; set; }
-    public string? Title { get; set; }
-    public string? Address { get; set; }
-    public EPlaceType? PlaceTypeId { get; set; }
-    public string? GeographicalLocation { get; set; }
-    public Guid? RegistrantID { get; set; }
+    [Required]
+    public string Title { get; set; }
+    [Required]
+    public string Address { get; set; }
+    [Required]
+    public EPlaceType PlaceTypeId { get; set; }
+    [Required]
+    public string GeographicalLocation { get; set; }
+    [Required]
+    public Guid RegistrantID { get; set; }
 }
 
 public class SearchPlacesWithTotalVM

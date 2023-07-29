@@ -33,7 +33,7 @@ namespace Application.Services.BookingHandler
 
             var IsExist = await _unitOfWork.Booking.GetBookLogRecords(bkr);
 
-            if (IsExist == null)
+            if (IsExist != null)
             {
                 return _apiResult.WithError(EStatusCode.ExistsBefore);
             };
