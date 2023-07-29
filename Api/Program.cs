@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NLog;
-using MediatR;
 using ResultHelper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +30,7 @@ builder.Services.AddControllers();
 
 
 builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
-builder.Services.AddResult("http://185.165.118.211:4010/Message/GetDic");
+builder.Services.AddResult("http://172.16.20.102:5054/Message/GetDic");
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddCore();
 builder.Services.AddInfrastructure(configuration);

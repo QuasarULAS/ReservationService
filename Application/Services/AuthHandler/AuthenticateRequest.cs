@@ -45,9 +45,9 @@ namespace Application.Services.AuthHandler
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                new(ClaimTypes.Name, User.Username),
-                new Claim("ID", User.ID.ToString())
-            }),
+                    new(ClaimTypes.Name, User.Username),
+                    new Claim("ID", User.ID.ToString())
+                }),
                 Expires = DateTime.UtcNow.AddMinutes(100),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),
                     SecurityAlgorithms.HmacSha256Signature)

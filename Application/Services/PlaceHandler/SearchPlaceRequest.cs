@@ -26,7 +26,7 @@ namespace Application.Services.PlaceHandler
                 PlaceName = request.PlaceName,
                 PlaceKind = request.PlaceKind,
                 Page = request.Page,
-                PerPage = request.PerPage,
+                Limit = request.Limit,
             };
 
             var result = await _unitOfWork.Place.SearchPlaces(requestModel);

@@ -5,7 +5,7 @@ namespace Core.Base.Pagination;
 public class BasePaginationVM
 {
     public int? Page { get; set; }
-    public int? PerPage { get; set; }
+    public int? Limit { get; set; }
 }
 
 public abstract class GetTotalDB

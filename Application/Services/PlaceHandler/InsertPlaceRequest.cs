@@ -3,6 +3,10 @@ using MediatR;
 using ResultHelper;
 using Infrastructure;
 using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using System.Text.Json;
+using System.IdentityModel.Tokens.Jwt;
+using Newtonsoft.Json.Linq;
 
 namespace Application.Services.PlaceHandler
 {
@@ -22,8 +26,12 @@ namespace Application.Services.PlaceHandler
         }
         public async Task<ApiResult<bool>> Handle(InsertPlaceRequest request, CancellationToken cancellationToken)
         {
-            string? claimId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "ID")?.ToString();
-            Guid UserId = new Guid(claimId);
+            string authorizationHeader = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+            string token = authorizationHeader.Substring("Bearer ".Length);
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+            Guid UserId = new(jwtToken.Claims.FirstOrDefault(c => c.Type == "ID")?.Value);
+
 
             InsertPlaceWithoutUserIdIM requestModel = new()
             {
