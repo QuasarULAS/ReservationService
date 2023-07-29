@@ -1,4 +1,5 @@
-﻿using Infrastructure;
+﻿using System.IdentityModel.Tokens.Jwt;
+using Infrastructure;
 using Infrastructure.Repositories.BookingRepo.Model;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +9,8 @@ namespace Application.Services.BookingHandler
 {
 
     public class MakeReservationRequest : MakeBookLogWithoutUserIdIM, IRequest<ApiResult<bool>>
-    { }
+    {
+    }
     public class MakeReservationRequestHandler : IRequestHandler<MakeReservationRequest, ApiResult<bool>>
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -36,8 +38,11 @@ namespace Application.Services.BookingHandler
                 return _apiResult.WithError(EStatusCode.ExistsBefore);
             };
 
-            string? claimId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "ID")?.ToString();
-            Guid UserId = new Guid(claimId);
+            string authorizationHeader = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+            string token = authorizationHeader.Substring("Bearer ".Length);
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+            Guid UserId = new(jwtToken.Claims.FirstOrDefault(c => c.Type == "ID")?.Value);
 
             MakeBookLogWithoutUserIdIM requestModel = new()
             {

@@ -8,7 +8,8 @@ namespace Application.Services.PlaceHandler
 {
 
     public class SearchPlaceRequest : SearchPlacesIM, IRequest<ApiResult<SearchPlacesWithTotalAndListVM>>
-    { }
+    {
+    }
     public class SearchPlaceRequestHandler : IRequestHandler<SearchPlaceRequest, ApiResult<SearchPlacesWithTotalAndListVM>>
     {
         private readonly IUnitOfWork _unitOfWork;

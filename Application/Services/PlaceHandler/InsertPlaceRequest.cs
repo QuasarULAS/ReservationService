@@ -3,10 +3,7 @@ using MediatR;
 using ResultHelper;
 using Infrastructure;
 using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
-using System.Text.Json;
 using System.IdentityModel.Tokens.Jwt;
-using Newtonsoft.Json.Linq;
 
 namespace Application.Services.PlaceHandler
 {
@@ -31,7 +28,6 @@ namespace Application.Services.PlaceHandler
             var tokenHandler = new JwtSecurityTokenHandler();
             var jwtToken = tokenHandler.ReadJwtToken(token);
             Guid UserId = new(jwtToken.Claims.FirstOrDefault(c => c.Type == "ID")?.Value);
-
 
             InsertPlaceWithoutUserIdIM requestModel = new()
             {

@@ -25,6 +25,7 @@ namespace Application.Services.PlaceHandler
             var isExist = await _unitOfWork.Place.GetPlaceById(request.PlaceId);
             if (isExist == null)
             {
+                //_apiResult.WithValue("مکان مورد نظر یافت نشد.");
                 return _apiResult.WithSuccess(EStatusCode.NotFound);
             }
             var result = await _unitOfWork.Place.DeletePlace(request.PlaceId);

@@ -7,7 +7,8 @@ namespace Application.Services.PlaceHandler
 {
 
     public class UpdatePlaceRequest : UpdatePlaceIM, IRequest<ApiResult<bool>>
-    { }
+    {
+    }
     public class UpdatePlaceRequestHandler : IRequestHandler<UpdatePlaceRequest, ApiResult<bool>>
     {
         private readonly IUnitOfWork _unitOfWork;

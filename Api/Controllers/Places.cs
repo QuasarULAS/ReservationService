@@ -48,7 +48,7 @@ namespace Api.Controllers
         }
 
         ///<summary>حذف مکان</summary>
-        [HttpDelete("[action]/{placeId:int}")]
+        [HttpDelete("[action]")]
         public async Task<ActionResult<ApiResult<bool>>> DeletePlace(DeletePlaceRequest param)
         {
             var result = await _mediator.Send(param);
