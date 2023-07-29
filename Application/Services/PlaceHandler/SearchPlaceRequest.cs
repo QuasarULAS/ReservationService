@@ -4,10 +4,11 @@ using Infrastructure;
 using ResultHelper;
 using Application.Services.PlaceHandler.Dto;
 
-namespace Application.Services.PlaceHandler;
-
-public class SearchPlaceRequest : SearchPlacesIM, IRequest<ApiResult<SearchPlacesWithTotalAndListVM>>
+namespace Application.Services.PlaceHandler
 {
+
+    public class SearchPlaceRequest : SearchPlacesIM, IRequest<ApiResult<SearchPlacesWithTotalAndListVM>>
+    { }
     public class SearchPlaceRequestHandler : IRequestHandler<SearchPlaceRequest, ApiResult<SearchPlacesWithTotalAndListVM>>
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -53,4 +54,5 @@ public class SearchPlaceRequest : SearchPlacesIM, IRequest<ApiResult<SearchPlace
         }
     }
 }
+
 

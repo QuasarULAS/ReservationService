@@ -2,49 +2,54 @@
 using Api.Model;
 using LoggerService;
 using System.Net;
+using System.Threading.Tasks; // Add this using statement for Task.
+using Microsoft.AspNetCore.Http; // Add this using statement for HttpContext.
 
-namespace Api.CustomExeptionMiddleware;
 
-public class ExceptionMiddleware
+namespace Api.CustomExeptionMiddleware
 {
-    private readonly RequestDelegate _next;
-    private readonly ILoggerManager _logger;
 
-    public ExceptionMiddleware(RequestDelegate next, ILoggerManager logger)
+    public class ExceptionMiddleware
     {
-        _logger = logger;
-        _next = next;
-    }
+        private readonly RequestDelegate _next;
+        private readonly ILoggerManager _logger;
 
-    public async Task InvokeAsync(HttpContext httpContext)
-    {
-        try
+        public ExceptionMiddleware(RequestDelegate next, ILoggerManager logger)
         {
-            await _next(httpContext);
+            _logger = logger;
+            _next = next;
         }
-        catch (Exception ex)
+
+        public async Task InvokeAsync(HttpContext httpContext)
         {
-            _logger.LogError($"Something went wrong: {ex}");
-            await HandleExceptionAsync(httpContext, ex);
+            try
+            {
+                await _next(httpContext);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong: {ex}");
+                await HandleExceptionAsync(httpContext, ex);
+            }
+        }
+
+        private async Task HandleExceptionAsync(HttpContext context, Exception exception)
+        {
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            var message = exception switch
+            {
+                AccessViolationException => "Access violation error from the custom middleware",
+                _ => "متاسفانه خطایی در ارتباط با سرور رخ داده!"
+            };
+
+            await context.Response.WriteAsync(new ErrorDetails()
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = message
+            }.ToString());
         }
     }
 
-    private async Task HandleExceptionAsync(HttpContext context, Exception exception)
-    {
-        context.Response.ContentType = "application/json";
-        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-
-        var message = exception switch
-        {
-            AccessViolationException => "Access violation error from the custom middleware",
-            _ => "متاسفانه خطایی در ارتباط با سرور رخ داده!"
-        };
-
-        await context.Response.WriteAsync(new ErrorDetails()
-        {
-            StatusCode = context.Response.StatusCode,
-            Message = message
-        }.ToString());
-    }
 }
-

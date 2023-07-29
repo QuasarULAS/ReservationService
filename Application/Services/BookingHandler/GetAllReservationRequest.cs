@@ -3,10 +3,11 @@ using Infrastructure.Repositories.BookingRepo.Model;
 using MediatR;
 using ResultHelper;
 
-namespace Application.Services.BookingHandler;
-
-public class GetAllReservationRequest : IRequest<ApiResult<List<BookLogVM>>>
+namespace Application.Services.BookingHandler
 {
+
+    public class GetAllReservationRequest : IRequest<ApiResult<List<BookLogVM>>>
+    { }
     public class GetAllReservationRequestHandler : IRequestHandler<GetAllReservationRequest, ApiResult<List<BookLogVM>>>
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -26,4 +27,5 @@ public class GetAllReservationRequest : IRequest<ApiResult<List<BookLogVM>>>
         }
     }
 }
+
 

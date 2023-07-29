@@ -1,11 +1,15 @@
 using System.Text;
 using Api.Extensions;
 using LoggerService;
+using Core;
 using Infrastructure;
+using Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NLog;
+using MediatR;
+using ResultHelper;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -27,11 +31,11 @@ builder.Services.AddControllers();
 
 
 builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
-//builder.Services.AddResult("http://185.165.118.211:4010/Message/GetDic");
-//builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-//builder.Services.AddApplication();
+builder.Services.AddResult("http://185.165.118.211:4010/Message/GetDic");
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddCore();
 builder.Services.AddInfrastructure(configuration);
-
+builder.Services.AddApplication();
 
 // for swagger authorization
 builder.Services.AddSwaggerGen(c =>
@@ -92,7 +96,7 @@ if (app.Environment.IsDevelopment())
 }
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();
-app.ConfigureCustomExceptionMiddleware();
+//app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

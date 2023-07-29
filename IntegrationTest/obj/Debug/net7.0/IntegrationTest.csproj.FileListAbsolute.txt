@@ -232,3 +232,8 @@ D:/Code/WebDevelopment/tamrin/ReservePlace/IntegrationTest/obj/Debug/net7.0/ref/
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/obj/Debug/net7.0/IntegrationTest.pdb
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/obj/Debug/net7.0/IntegrationTest.genruntimeconfig.cache
 /Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/obj/Debug/net7.0/ref/IntegrationTest.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/bin/Debug/net7.0/Dapper.FastCrud.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/bin/Debug/net7.0/DayaResultHelper.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/bin/Debug/net7.0/MediatR.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/bin/Debug/net7.0/MediatR.Contracts.dll
+/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/IntegrationTest/bin/Debug/net7.0/MediatR.Extensions.Microsoft.DependencyInjection.dll

@@ -8,10 +8,11 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 
-namespace Application.Services.AuthHandler;
-
-public class AuthenticateRequest : UserIM, IRequest<ApiResult<Tokens>>
+namespace Application.Services.AuthHandler
 {
+
+    public class AuthenticateRequest : UserIM, IRequest<ApiResult<Tokens>>
+    { }
     public class AuthenticateRequestHandler : IRequestHandler<AuthenticateRequest, ApiResult<Tokens>>
     {
         private readonly IConfiguration _configuration;
@@ -57,4 +58,5 @@ public class AuthenticateRequest : UserIM, IRequest<ApiResult<Tokens>>
         }
     }
 }
+
 

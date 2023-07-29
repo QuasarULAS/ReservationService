@@ -1,69 +1,115 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0FD90345-C4BA-4749-991A-54F1E2E7F163}|https">
+﻿<Properties StartupConfiguration="{0FD90345-C4BA-4749-991A-54F1E2E7F163}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.04-Api.Api PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
+  <DisabledProjects>
+    <String>Api/LoggerService/LoggerService.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Repositories/UnitOfWork.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Api/Program.cs">
     <Files>
-      <File FileName="Api/Controllers/Auth.cs" Line="40" Column="26" />
+      <File FileName="Api/Controllers/Auth.cs" Line="17" Column="40" />
       <File FileName="Api/appsettings.json" />
       <File FileName="Api/appsettings.Development.json" />
-      <File FileName="Api/Program.cs" />
-      <File FileName="Infrastructure/Repositories/AuthRepo/JWTManagerRepository.cs" Line="53" Column="2" />
-      <File FileName="Infrastructure/Repositories/UserRepo/UserRepository.cs" Line="13" Column="27" />
       <File FileName="Api/Model/ErrorDetails.cs" />
-      <File FileName="Infrastructure/Repositories/AuthRepo/IJWTManagerRepository.cs" />
       <File FileName="Api/obj/Debug/net7.0/Api.AssemblyInfo.cs" />
       <File FileName="LoggerService/ILoggerManager.cs" />
       <File FileName="LoggerService/LoggerManager.cs" />
       <File FileName="Api/Extensions/ExceptionMiddlewareExtensions.cs" />
-      <File FileName="Api/Controllers/Places.cs" Line="15" Column="19" />
       <File FileName="IntegrationTest/Auth_Test.cs" />
       <File FileName="IntegrationTest/Usings.cs" />
       <File FileName="IntegrationTest/Places_Test.cs" />
       <File FileName="Api/nlog.config" />
       <File FileName="Api/CustomExeptionMiddleware/ExceptionMiddleware.cs" />
       <File FileName="Api/~/internal_logs/internallog.txt" />
-      <File FileName="Infrastructure/Repositories/AuthRepo/Model/UserAuthenticateM.cs" />
-      <File FileName="Infrastructure/Repositories/BookingRepo/BookingRepository.cs" Line="40" Column="10" />
-      <File FileName="Application/PlaceHandler/PlaceHandler.cs" />
-      <File FileName="Infrastructure/Repositories/PlaceRepo/IPlaceRepository.cs" Line="9" Column="81" />
-      <File FileName="Core/Base/Pagination/pagination.cs" Line="20" Column="2" />
-      <File FileName="Infrastructure/Repositories/UserRepo/IUserRepository.cs" Line="10" Column="42" />
-      <File FileName="Infrastructure/Repositories/UserRepo/Model/User.cs" Line="9" Column="17" />
-      <File FileName="Core/Models/Users.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Repositories/BookingRepo/IBookingRepository.cs" Line="11" Column="33" />
-      <File FileName="Infrastructure/Repositories/BookingRepo/Model/Booking.cs" Line="20" Column="35" />
-      <File FileName="Core/Models/Booking.cs" Line="1" Column="1" />
-      <File FileName="Api/Controllers/Booking.cs" Line="25" Column="84" />
-      <File FileName="Infrastructure/Repositories/UnitOfWork.cs" Line="1" Column="1" />
+      <File FileName="Core/Models/Users.cs" />
+      <File FileName="Infrastructure/Repositories/BookingRepo/IBookingRepository.cs" />
+      <File FileName="Core/Models/Booking.cs" />
+      <File FileName="Api/Controllers/Booking.cs" />
+      <File FileName="Infrastructure/Repositories/UnitOfWork.cs" />
+      <File FileName="Infrastructure/UnitOfWork.cs" />
+      <File FileName="Application/DependencyInjection.cs" Line="17" Column="1" />
+      <File FileName="Application/Services/PlaceHandler/DeletePlaceRequest.cs" />
+      <File FileName="Application/Services/PlaceHandler/UpdatePlaceRequest.cs" />
+      <File FileName="Application/Services/PlaceHandler/SearchPlaceRequest.cs" />
+      <File FileName="Infrastructure/Repositories/PlaceRepo/PlaceRepository.cs" />
+      <File FileName="Infrastructure/Repositories/PlaceRepo/IPlaceRepository.cs" />
+      <File FileName="Api/Controllers/Places.cs" />
+      <File FileName="Infrastructure/IUnitOfWork.cs" />
+      <File FileName="Infrastructure/Repositories/BookingRepo/BookingRepository.cs" />
+      <File FileName="Infrastructure/Repositories/BookingRepo/Model/Booking.cs" />
+      <File FileName="Application/Services/BookingHandler/GetAllReservationRequest.cs" />
+      <File FileName="Infrastructure/DependencyInjection.cs" />
+      <File FileName="Api/Program.cs" Line="34" Column="1" />
+      <File FileName="LoggerService/obj/Debug/net7.0/LoggerService.GlobalUsings.g.cs" />
+      <File FileName="IntegrationTest/BookLog_Test.cs" />
+      <File FileName="Infrastructure/Repositories/DbSession.cs" />
+      <File FileName="Core/DependencyInjection.cs" Line="1" Column="1" />
+      <File FileName="Core/Models/Places.cs" />
+      <File FileName="Infrastructure/Repositories/AuthRepo/Model/Auth.cs" />
+      <File FileName="Infrastructure/Repositories/PlaceRepo/Model/Place.cs" />
+      <File FileName="Application/Services/PlaceHandler/InsertPlaceRequest.cs" />
+      <File FileName="Application/Services/BookingHandler/MakeReservationRequest.cs" />
+      <File FileName="Application/Services/AuthHandler/AuthenticateRequest.cs" Line="16" Column="82" />
+      <File FileName="Application/Services/AuthHandler/RegisterUserRequest.cs" />
+      <File FileName="Application/Application.csproj" Line="4" Column="24" />
+      <File FileName="Api/Api.csproj" Line="17" Column="67" />
+      <File FileName="Infrastructure/Infrastructure.csproj" Line="17" Column="11" />
+      <File FileName="Core/Core.csproj" Line="4" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ReservePlace">
-            <Node name="02-Infrastructure">
+            <Node name="01-Core" expanded="True">
+              <Node name="Core">
+                <Node name="Dependencies" expanded="True" />
+                <Node name="Models" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="02-Infrastructure" expanded="True">
               <Node name="Infrastructure">
-                <Node name="Repositories">
-                  <Node name="UnitOfWork.cs" selected="True" />
+                <Node name="Dependencies" expanded="True">
+                  <Node name="PackageDependencies" expanded="True" />
+                </Node>
+                <Node name="Repositories" expanded="True">
+                  <Node name="AuthRepo" expanded="True">
+                    <Node name="Model" expanded="True" />
+                  </Node>
+                  <Node name="BookingRepo" expanded="True">
+                    <Node name="Model" expanded="True" />
+                  </Node>
+                  <Node name="PlaceRepo" expanded="True">
+                    <Node name="Model" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>
-            <Node name="04-Api">
-              <Node name="Api">
-                <Node name="Controllers" expanded="True" />
+            <Node name="03-Application" expanded="True">
+              <Node name="Application">
+                <Node name="Dependencies" expanded="True">
+                  <Node name="PackageDependencies" expanded="True" />
+                </Node>
+                <Node name="Services" expanded="True">
+                  <Node name="AuthHandler" expanded="True" />
+                </Node>
               </Node>
             </Node>
-            <Node name="LoggerService" expanded="True">
-              <Node name="LoggerService" expanded="True" />
+            <Node name="04-Api" expanded="True">
+              <Node name="Api">
+                <Node name="Dependencies" expanded="True">
+                  <Node name="PackageDependencies" expanded="True" />
+                </Node>
+                <Node name="Controllers" expanded="True" />
+                <Node name="Program.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <DisabledProjects>
-    <String>Api/LoggerService/LoggerService.csproj</String>
-  </DisabledProjects>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

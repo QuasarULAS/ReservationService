@@ -3,10 +3,11 @@ using ResultHelper;
 using Infrastructure;
 using Infrastructure.Repositories.AuthRepo.Model;
 
-namespace Application.Services.AuthHandler;
-
-public class RegisterUserRequest : RegisterUserIM, IRequest<ApiResult<bool>>
+namespace Application.Services.AuthHandler
 {
+
+    public class RegisterUserRequest : RegisterUserIM, IRequest<ApiResult<bool>>
+    { }
     public class RegisterUserRequestHandler : IRequestHandler<RegisterUserRequest, ApiResult<bool>>
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -32,5 +33,6 @@ public class RegisterUserRequest : RegisterUserIM, IRequest<ApiResult<bool>>
         }
     }
 }
+
 
 

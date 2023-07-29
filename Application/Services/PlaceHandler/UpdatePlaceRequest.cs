@@ -1,14 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Core.Base.Enum;
-using Infrastructure;
+﻿using Infrastructure;
 using Infrastructure.Repositories.PlaceRepo.Model;
 using MediatR;
 using ResultHelper;
 
-namespace Application.Services.PlaceHandler;
-
-public class UpdatePlaceRequest : UpdatePlaceIM, IRequest<ApiResult<bool>>
+namespace Application.Services.PlaceHandler
 {
+
+    public class UpdatePlaceRequest : UpdatePlaceIM, IRequest<ApiResult<bool>>
+    { }
     public class UpdatePlaceRequestHandler : IRequestHandler<UpdatePlaceRequest, ApiResult<bool>>
     {
         private readonly IUnitOfWork _unitOfWork;

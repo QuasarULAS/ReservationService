@@ -51,7 +51,7 @@
           }
         }
       },
-      "MediatR/11.0.0": {
+      "MediatR/11.1.0": {
         "type": "package",
         "dependencies": {
           "MediatR.Contracts": "1.0.1"
@@ -957,6 +957,7 @@
         "dependencies": {
           "DayaResultHelper": "1.0.5",
           "Infrastructure": "1.0.0",
+          "MediatR": "11.1.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
         },
         "compile": {
@@ -1064,17 +1065,17 @@
         "lib/net6.0/DayaResultHelper.xml"
       ]
     },
-    "MediatR/11.0.0": {
-      "sha512": "8klzVGZQiA2oxZRzQFBZbdPD/IQUm9RYtfiyTDKhxDQ99Gi93+GXt1ZJjH2D7Lh7ZFHCv5XdkwbmfHEQBCatPg==",
+    "MediatR/11.1.0": {
+      "sha512": "YIbtrLOyeCuIv8vIuHL/mMdls5xmgS36pIOJDxKZuu55nxA2MI2Z+E/Uk0z+F/LE11AGmpjplOM0NZ91m5LQBA==",
       "type": "package",
-      "path": "mediatr/11.0.0",
+      "path": "mediatr/11.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "gradient_128x128.png",
         "lib/netstandard2.1/MediatR.dll",
         "lib/netstandard2.1/MediatR.xml",
-        "mediatr.11.0.0.nupkg.sha512",
+        "mediatr.11.1.0.nupkg.sha512",
         "mediatr.nuspec"
       ]
     },

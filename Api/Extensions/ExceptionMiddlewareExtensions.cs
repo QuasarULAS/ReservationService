@@ -5,37 +5,39 @@ using LoggerService;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 
-namespace Api.Extensions;
-
-public static class ExceptionMiddlewareExtensions
+namespace Api.Extensions
 {
-    public static void ConfigureExceptionHandler(this IApplicationBuilder app, ILoggerManager logger)
+
+    public static class ExceptionMiddlewareExtensions
     {
-        app.UseExceptionHandler(appError =>
+        public static void ConfigureExceptionHandler(this IApplicationBuilder app, ILoggerManager logger)
         {
-            appError.Run(async context =>
+            app.UseExceptionHandler(appError =>
             {
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                context.Response.ContentType = "application/json";
-
-                var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                if (contextFeature != null)
+                appError.Run(async context =>
                 {
-                    logger.LogError($"Something went wrong: {contextFeature.Error}");
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    context.Response.ContentType = "application/json";
 
-                    await context.Response.WriteAsync(new ErrorDetails()
+                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    if (contextFeature != null)
                     {
-                        StatusCode = context.Response.StatusCode,
-                        Message = "Internal Server Error."
-                    }.ToString());
-                }
+                        logger.LogError($"Something went wrong: {contextFeature.Error}");
+
+                        await context.Response.WriteAsync(new ErrorDetails()
+                        {
+                            StatusCode = context.Response.StatusCode,
+                            Message = "Internal Server Error."
+                        }.ToString());
+                    }
+                });
             });
-        });
+        }
+
+        public static void ConfigureCustomExceptionMiddleware(this IApplicationBuilder app)
+        {
+            app.UseMiddleware<ExceptionMiddleware>();
+        }
     }
 
-    public static void ConfigureCustomExceptionMiddleware(this IApplicationBuilder app)
-    {
-        app.UseMiddleware<ExceptionMiddleware>();
-    }
 }
-

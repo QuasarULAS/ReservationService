@@ -2,7 +2,6 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using Infrastructure.Repositories.AuthRepo.Model;
-using Infrastructure.Repositories.UserRepo.Model;
 using Newtonsoft.Json;
 
 namespace BookingPlacesTest;
@@ -10,6 +9,7 @@ namespace BookingPlacesTest;
 public class Auth_Test
 {
     private HttpClient _httpClient;
+    private readonly string _localHostURL = "https://localhost:7020";
 
     [Fact]
     public async Task RegisterUser200_Test()
@@ -17,7 +17,7 @@ public class Auth_Test
         //Arrange
         _httpClient = new HttpClient();
 
-        var obj = new InsertUserInputModel();
+        var obj = new RegisterUserIM();
         obj.Username = "satava";
         obj.Password = "667788";
         obj.Status = false;
@@ -29,8 +29,8 @@ public class Auth_Test
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
         //Act
-        var response = await _httpClient.PostAsync("https://localhost:7224/Auth/RegisterUser", byteContent);
-        
+        var response = await _httpClient.PostAsync(_localHostURL + "/Auth/RegisterUser", byteContent);
+
         //Act
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
@@ -41,7 +41,7 @@ public class Auth_Test
         //Arrange
         _httpClient = new HttpClient();
 
-        var obj = new InsertUserInputModel();
+        var obj = new UserIM();
         obj.Username = "test";
         obj.Password = "no";
 
@@ -52,7 +52,7 @@ public class Auth_Test
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
         //Act
-        var response = await _httpClient.PostAsync("https://localhost:7224/Auth/RegisterUser", byteContent);
+        var response = await _httpClient.PostAsync(_localHostURL + "/Auth/RegisterUser", byteContent);
 
         //Assert
         Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
@@ -64,7 +64,7 @@ public class Auth_Test
         //Arrange
         _httpClient = new HttpClient();
 
-        var _user = new UserAuthenticateM();
+        var _user = new UserIM();
         _user.Username = "hasan";
         _user.Password = "1234";
 
@@ -75,7 +75,7 @@ public class Auth_Test
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
         //Act
-        var response = await _httpClient.PostAsync("https://localhost:7224/Auth/authenticate", byteContent);
+        var response = await _httpClient.PostAsync(_localHostURL + "/Auth/authenticate", byteContent);
         var result = await response.Content.ReadAsStringAsync();
         var _token = JsonConvert.DeserializeObject<Tokens>(result);
 
@@ -88,7 +88,7 @@ public class Auth_Test
     {
         _httpClient = new HttpClient();
 
-        var _user = new UserAuthenticateM();
+        var _user = new UserIM();
         _user.Username = "hasan";
         _user.Password = "12345";
 
@@ -98,7 +98,7 @@ public class Auth_Test
         var byteContent = new ByteArrayContent(buffer);
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-        var response = await _httpClient.PostAsync("https://localhost:7224/Auth/authenticate", byteContent);
+        var response = await _httpClient.PostAsync(_localHostURL + "/Auth/authenticate", byteContent);
         Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 }

@@ -3,13 +3,14 @@ using Infrastructure;
 using MediatR;
 using ResultHelper;
 
-namespace Application.Services.PlaceHandler;
-
-public class DeletePlaceRequest : IRequest<ApiResult<bool>>
+namespace Application.Services.PlaceHandler
 {
-    [Required]
-    public int PlaceId { get; set; }
 
+    public class DeletePlaceRequest : IRequest<ApiResult<bool>>
+    {
+        [Required]
+        public int PlaceId { get; set; }
+    }
     public class DeletePlaceRequestHandler : IRequestHandler<DeletePlaceRequest, ApiResult<bool>>
     {
         private readonly IUnitOfWork _unitOfWork;

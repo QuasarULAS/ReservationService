@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xrJOq5ygHxq4HVGyBPCvt6n4SjPqobFw8Q7fkYDwTuja3oJtxsQczqxMojo7wnLdnUkxipWM+r9uBsuXcNsbsA==",
+  "dgSpecHash": "f8xgVMVR23AdCZR4fKAwu2E13Is68MBeeHlW7bwhMlm1k3/ljbl3cw22uWGzStCsW1mD4KDKkXqw2JrzBifXvw==",
   "success": true,
   "projectFilePath": "/Users/quasar/Documents/WebDevelopment/BackEnd/tamrin/ReservePlace/Application/Application.csproj",
   "expectedPackageFiles": [
     "/Users/quasar/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
     "/Users/quasar/.nuget/packages/dapper.fastcrud/3.1.46/dapper.fastcrud.3.1.46.nupkg.sha512",
     "/Users/quasar/.nuget/packages/dayaresulthelper/1.0.5/dayaresulthelper.1.0.5.nupkg.sha512",
-    "/Users/quasar/.nuget/packages/mediatr/11.0.0/mediatr.11.0.0.nupkg.sha512",
+    "/Users/quasar/.nuget/packages/mediatr/11.1.0/mediatr.11.1.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
     "/Users/quasar/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "/Users/quasar/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.9/microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
