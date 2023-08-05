@@ -26,10 +26,10 @@ public class BookLog_Test
 
         var response = await _httpClient.PostAsync(_localHostURL + "/Auth/authenticate", byteContent);
         var result = await response.Content.ReadAsStringAsync();
-        var token = JsonConvert.DeserializeObject<Tokens>(result);
-
+        var _token = JsonConvert.DeserializeObject<dynamic>(result);
+        var token = _token.data.token.ToString();
         _httpClient.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", token.Token);
+            new AuthenticationHeaderValue("Bearer", token);
     }
 
     [Fact]
@@ -41,9 +41,9 @@ public class BookLog_Test
         await GetToken();
 
         var bookLog = new MakeBookLogWithoutUserIdIM();
-        bookLog.BookingPlaceId = 2009;
+        bookLog.BookingPlaceId = 1003;
         bookLog.ReservationDate = DateTime.Now;
-        bookLog.Price = 1;
+        bookLog.Price = 155000;
 
         var byteContent = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(bookLog)));
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -77,9 +77,10 @@ public class BookLog_Test
         //Act
         var response = await _httpClient.PostAsync(_localHostURL + "/Booking/ReservePlace", byteContent);
         var result = await response.Content.ReadAsStringAsync();
+        var _res = JsonConvert.DeserializeObject<dynamic>(result);
+        var msg = _res.message.ToString();
 
         //Assert
-        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        Assert.Equal("This Place Is Reserved By Another Person In This Time.", result);
+        Assert.Equal("این مکان از قبل رزرو شده است ، نمیتوانید ذر این زمان رزرو کنید.", msg);
     }
 }

@@ -7,39 +7,29 @@ namespace Infrastructure.Repositories.PlaceRepo.Model;
 
 public class InsertPlaceWithoutUserIdIM
 {
-    [Required]
+    [Required(ErrorMessage = "تایتل مکان الزامیست.")]
     public string Title { get; set; }
-    [Required]
+    [Required(ErrorMessage = "آدررس مکان الزامیست.")]
     public string Address { get; set; }
-    [Required]
+    [Required(ErrorMessage = "نوع مکان الزامیست.")]
     public EPlaceType PlaceTypeId { get; set; }
-    [Required]
+    [Required(ErrorMessage = "مکان جغرافیایی مکان الزامیست.")]
     public string GeographicalLocation { get; set; }
 }
 
 [Table("Places")]
 public class InsertPlaceWithUserIdDto : InsertPlaceWithoutUserIdIM
 {
-    [Required]
+    [Required(ErrorMessage = "آیدی کاربر ثبت کننده مکان الزامیست.")]
     public Guid RegistrantID { get; set; }
 }
 
 [Table("Places")]
-public class UpdatePlaceIM
+public class UpdatePlaceIM : InsertPlaceWithUserIdDto
 {
     [Key]
-    [Required]
+    [Required(ErrorMessage = "آیدی مکان الزامیست.")]
     public int ID { get; set; }
-    [Required]
-    public string Title { get; set; }
-    [Required]
-    public string Address { get; set; }
-    [Required]
-    public EPlaceType PlaceTypeId { get; set; }
-    [Required]
-    public string GeographicalLocation { get; set; }
-    [Required]
-    public Guid RegistrantID { get; set; }
 }
 
 public class SearchPlacesWithTotalVM

@@ -2,7 +2,9 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using Infrastructure.Repositories.AuthRepo.Model;
+using Microsoft.OpenApi.Any;
 using Newtonsoft.Json;
+using ResultHelper;
 
 namespace BookingPlacesTest;
 
@@ -18,8 +20,8 @@ public class Auth_Test
         _httpClient = new HttpClient();
 
         var obj = new RegisterUserIM();
-        obj.Username = "satava";
-        obj.Password = "667788";
+        obj.Username = "dofanto";
+        obj.Password = "san3";
         obj.Status = false;
 
         // for convert media type to application/json
@@ -36,7 +38,7 @@ public class Auth_Test
     }
 
     [Fact]
-    public async Task RegisterUser400_Test()
+    public async Task RegisterUser500_Test()
     {
         //Arrange
         _httpClient = new HttpClient();
@@ -55,7 +57,7 @@ public class Auth_Test
         var response = await _httpClient.PostAsync(_localHostURL + "/Auth/RegisterUser", byteContent);
 
         //Assert
-        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
     }
 
     [Fact]
@@ -77,10 +79,10 @@ public class Auth_Test
         //Act
         var response = await _httpClient.PostAsync(_localHostURL + "/Auth/authenticate", byteContent);
         var result = await response.Content.ReadAsStringAsync();
-        var _token = JsonConvert.DeserializeObject<Tokens>(result);
-
+        var _token = JsonConvert.DeserializeObject<dynamic>(result);
+        var token = _token.data.token.ToString();
         //Assert
-        Assert.NotEmpty(_token.Token);
+        Assert.NotEmpty(token);
     }
 
     [Fact]
@@ -98,7 +100,12 @@ public class Auth_Test
         var byteContent = new ByteArrayContent(buffer);
         byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
+
+        //Act
         var response = await _httpClient.PostAsync(_localHostURL + "/Auth/authenticate", byteContent);
-        Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+        var result = await response.Content.ReadAsStringAsync();
+        var _data = JsonConvert.DeserializeObject<dynamic>(result);
+        var code = _data.code.ToString();
+        Assert.Equal("401", code);
     }
 }

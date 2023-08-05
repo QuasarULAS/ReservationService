@@ -8,7 +8,7 @@ namespace Application.Services.PlaceHandler
 
     public class DeletePlaceRequest : IRequest<ApiResult<bool>>
     {
-        [Required]
+        [Required(ErrorMessage = "آیدی مکان الزامیست")]
         public int PlaceId { get; set; }
     }
     public class DeletePlaceRequestHandler : IRequestHandler<DeletePlaceRequest, ApiResult<bool>>
@@ -25,12 +25,11 @@ namespace Application.Services.PlaceHandler
             var isExist = await _unitOfWork.Place.GetPlaceById(request.PlaceId);
             if (isExist == null)
             {
-                //_apiResult.WithValue("مکان مورد نظر یافت نشد.");
-                return _apiResult.WithSuccess(EStatusCode.NotFound);
+                return _apiResult.WithSuccess("مکان مورد نظر یافت نشد.");
             }
             var result = await _unitOfWork.Place.DeletePlace(request.PlaceId);
             _apiResult.WithValue(result);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("مکان مورد با موفقیت حذف شد.");
         }
     }
 }

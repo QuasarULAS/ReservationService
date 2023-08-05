@@ -29,7 +29,7 @@ namespace Application.Services.AuthHandler
 
             var result = await _unitOfWork.Auth.RegisterUser(requestModel);
             _apiResult.WithValue(result);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("کاربر اضافه شد.");
         }
     }
 }

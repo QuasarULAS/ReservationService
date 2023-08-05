@@ -4,9 +4,9 @@ namespace Infrastructure.Repositories.AuthRepo.Model;
 
 public class UserIM
 {
-    [Required]
+    [Required(ErrorMessage = "نام کاربری الزامیست.")]
     public string Username { get; set; }
-    [Required]
+    [Required(ErrorMessage = "پسورد الزامیست.")]
     public string Password { get; set; }
 }
 
@@ -18,7 +18,7 @@ public class UserWithIdDto : UserIM
 [Table("Users")]
 public class RegisterUserIM : UserIM
 {
-    [Required]
+    [Required(ErrorMessage = "وضیعیت فعال یا غیرفعال بودن الزامیست.")]
     public bool Status { get; set; }
 }
 

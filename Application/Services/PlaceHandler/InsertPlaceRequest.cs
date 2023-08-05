@@ -39,7 +39,7 @@ namespace Application.Services.PlaceHandler
 
             var result = await _unitOfWork.Place.InsertPlace(requestModel, UserId);
             _apiResult.WithValue(result);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("مکان با موفقیت اضافه شد.");
         }
     }
 }

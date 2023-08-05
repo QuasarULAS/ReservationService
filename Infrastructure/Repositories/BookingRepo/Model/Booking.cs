@@ -16,11 +16,12 @@ public class BookLogVM
 
 public class MakeBookLogWithoutUserIdIM
 {
-    [Required]
+    [Required(ErrorMessage = "زمان رزرو الزامیست.")]
     public DateTime ReservationDate { get; set; }
-    [Required]
+    [Required(ErrorMessage = "آیدی مکان الزامیست.")]
     public int BookingPlaceId { get; set; }
-    [Required]
+    [Required(ErrorMessage = "قیمت الزامیست.")]
+    [Range(1000, int.MaxValue,ErrorMessage ="قیمت باید بیشتر از ۱۰۰۰ باشد.")]
     public int Price { get; set; }
 }
 [Table("BookLog")]

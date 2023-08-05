@@ -23,7 +23,7 @@ namespace Application.Services.BookingHandler
         {
             var result = await _unitOfWork.Booking.GetAllBookLog();
             _apiResult.WithValue(result);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("عملیات با موفقیت انجام شد.");
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Application.Services.BookingHandler
 
             if (IsExist != null)
             {
-                return _apiResult.WithError(EStatusCode.ExistsBefore);
+                return _apiResult.WithError("این مکان از قبل رزرو شده است ، نمیتوانید ذر این زمان رزرو کنید.");
             };
 
             string authorizationHeader = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
@@ -53,7 +53,7 @@ namespace Application.Services.BookingHandler
 
             var result = await _unitOfWork.Booking.InsertBookLog(requestModel, UserId);
             _apiResult.WithValue(result);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("مکان مورد نظر با موفقیت رزرو شد.");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Application.Services.PlaceHandler
             var isExist = await _unitOfWork.Place.GetPlaceById(request.ID);
             if (isExist == null)
             {
-                return _apiResult.WithSuccess(EStatusCode.NotFound);
+                return _apiResult.WithSuccess("مکان مورد نظر یافت نشد.");
             }
             bool IsUpdate;
 
@@ -42,7 +42,7 @@ namespace Application.Services.PlaceHandler
 
             var result = await _unitOfWork.Place.UpdatePlace(requestModel);
             _apiResult.WithValue(result);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("آپدیت با موفقیت انجام شد.");
         }
     }
 }

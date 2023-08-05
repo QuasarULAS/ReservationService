@@ -24,14 +24,14 @@ namespace Application.Services.PlaceHandler
         {
             SearchPlacesIM requestModel = new()
             {
-                PlaceName = request.PlaceName,
-                PlaceKind = request.PlaceKind,
+                PlaceName = request.PlaceName ?? null,
+                PlaceKind = request.PlaceKind ?? null,
                 Page = request.Page,
                 Limit = request.Limit,
             };
 
             var result = await _unitOfWork.Place.SearchPlaces(requestModel);
-            if (result.Count == 0) return _apiResult.WithSuccess("no content");
+            if (result.Count == 0) return _apiResult.WithSuccess("چیزی جهت نمایش وجود ندارد.");
 
             int total = result[0].Total;
             List<SearchPlacesWithoutTotalDto> _list = result.Select(x => new SearchPlacesWithoutTotalDto
@@ -51,7 +51,7 @@ namespace Application.Services.PlaceHandler
             };
 
             _apiResult.WithValue(allPlaces);
-            return _apiResult.WithSuccess(EStatusCode.Success);
+            return _apiResult.WithSuccess("جستو با موفقیت انجام شد.");
         }
     }
 }
